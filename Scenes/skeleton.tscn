@@ -327,6 +327,9 @@ size = Vector2(9.666667, 16.333334)
 [sub_resource type="CircleShape2D" id="CircleShape2D_xagnb"]
 radius = 150.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_o01uv"]
+radius = 250.0
+
 [node name="Skeleton" type="CharacterBody2D" unique_id=1293755580]
 scale = Vector2(3, 3)
 collision_layer = 2
@@ -342,9 +345,20 @@ autoplay = "idle_right"
 position = Vector2(-0.1666666, -1.8333334)
 shape = SubResource("RectangleShape2D_xagnb")
 
-[node name="Sight" type="Area2D" parent="." unique_id=1800754449]
+[node name="innerSight" type="Area2D" parent="." unique_id=1800754449]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sight" unique_id=813576605]
+[node name="radius" type="CollisionShape2D" parent="innerSight" unique_id=813576605]
 shape = SubResource("CircleShape2D_xagnb")
 
-[connection signal="body_entered" from="Sight" to="." method="_on_sight_body_entered"]
+[node name="outerSight" type="Area2D" parent="." unique_id=143685689]
+
+[node name="radius" type="CollisionShape2D" parent="outerSight" unique_id=1696426576]
+shape = SubResource("CircleShape2D_o01uv")
+
+[connection signal="body_entered" from="innerSight" to="." method="_on_sight_body_entered"]
+[connection signal="body_entered" from="innerSight" to="." method="_on_inner_sight_body_entered"]
+[connection signal="area_exited" from="outerSight" to="." method="_on_outer_sight_area_exited"]
+[connection signal="area_shape_exited" from="outerSight" to="." method="_on_outer_sight_area_shape_exited"]
+[connection signal="body_entered" from="outerSight" to="." method="_on_sight_body_entered"]
+[connection signal="body_entered" from="outerSight" to="." method="_on_outer_sight_body_entered"]
+[connection signal="body_exited" from="outerSight" to="." method="_on_outer_sight_body_exited"]
