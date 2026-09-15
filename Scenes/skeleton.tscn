@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b518gwyylk7sp" path="res://Scripts/skeleton.gd" id="1_81u3t"]
 [ext_resource type="Texture2D" uid="uid://dap5t2xjhr2tn" path="res://Assets/Images/Enemies/Skeleton.png" id="1_sfdtf"]
+[ext_resource type="AudioStream" uid="uid://xivgdqlhkcbh" path="res://Assets/Audio/Roar.wav" id="3_vd5x3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lw4xn"]
 atlas = ExtResource("1_sfdtf")
@@ -341,7 +342,7 @@ sprite_frames = SubResource("SpriteFrames_xagnb")
 animation = &"chase_down"
 autoplay = "idle_right"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=536377579]
+[node name="hitbox" type="CollisionShape2D" parent="." unique_id=536377579]
 position = Vector2(-0.1666666, -1.8333334)
 shape = SubResource("RectangleShape2D_xagnb")
 
@@ -354,6 +355,10 @@ shape = SubResource("CircleShape2D_xagnb")
 
 [node name="radius" type="CollisionShape2D" parent="outerSight" unique_id=1696426576]
 shape = SubResource("CircleShape2D_o01uv")
+
+[node name="TakeDamage" type="AudioStreamPlayer2D" parent="." unique_id=104389404]
+stream = ExtResource("3_vd5x3")
+pitch_scale = 0.75
 
 [connection signal="body_entered" from="innerSight" to="." method="_on_sight_body_entered"]
 [connection signal="body_entered" from="innerSight" to="." method="_on_inner_sight_body_entered"]

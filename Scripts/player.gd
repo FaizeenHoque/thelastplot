@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
-const SPEED = 500.0
+const SPEED = 150.0
+const SLASH_STRENGTH = 20
 
 var last_direction: Vector2 = Vector2.DOWN
 var is_slashing: bool = false
@@ -84,4 +85,4 @@ func updateRangeOffset() -> void:
 
 func _on_range_body_entered(body: Node2D) -> void:
 	if is_slashing and body.name.begins_with("Skeleton"):
-		print("Hit")
+		body.take_damage(SLASH_STRENGTH, position)

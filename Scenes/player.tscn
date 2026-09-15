@@ -388,8 +388,8 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_o01uv"]
-size = Vector2(17.166668, 20.5)
+[sub_resource type="CircleShape2D" id="CircleShape2D_vd5x3"]
+radius = 15.916884
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fifeb"]
 size = Vector2(7.3333335, 17)
@@ -407,12 +407,13 @@ stream = ExtResource("3_6t5aa")
 pitch_scale = 5.0
 
 [node name="Range" type="Area2D" parent="." unique_id=1465407719]
-position = Vector2(7.5, -0.5)
+position = Vector2(5.6666665, -2.3333335)
+collision_mask = 2
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Range" unique_id=1810973143]
 position = Vector2(2.583334, 0.24999967)
-shape = SubResource("RectangleShape2D_o01uv")
+shape = SubResource("CircleShape2D_vd5x3")
 
 [node name="Hitbox" type="CollisionShape2D" parent="." unique_id=1484157100]
 position = Vector2(0, -1.5)
