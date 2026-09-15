@@ -66,8 +66,6 @@ func _die() -> void:
 	take_damage_sound.pitch_scale = 0.5
 	take_damage_sound.play()
 	
-	name = "DeadSkeleton"
-	
 	$innerSight/radius.set_deferred("disabled", true)
 	$outerSight/radius.set_deferred("disabled", true)
 	$hitbox.set_deferred("disabled", true)
@@ -77,5 +75,5 @@ func _on_inner_sight_body_entered(body: Node2D) -> void:
 		target = body
 
 func _on_outer_sight_body_exited(body: Node2D) -> void:
-	if body.name == "Player":
+	if body.name == "Player" and is_alive:
 		target = null
