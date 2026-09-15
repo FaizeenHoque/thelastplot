@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://b331c7hq4tpm6"]
 
+[ext_resource type="Script" uid="uid://b518gwyylk7sp" path="res://Scripts/skeleton.gd" id="1_81u3t"]
 [ext_resource type="Texture2D" uid="uid://dap5t2xjhr2tn" path="res://Assets/Images/Enemies/Skeleton.png" id="1_sfdtf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lw4xn"]
@@ -185,7 +186,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"chase_down",
-"speed": 10.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -208,7 +209,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"chase_right",
-"speed": 10.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -231,7 +232,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"chase_up",
-"speed": 10.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -323,15 +324,27 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xagnb"]
 size = Vector2(9.666667, 16.333334)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_xagnb"]
+radius = 150.0
+
 [node name="Skeleton" type="CharacterBody2D" unique_id=1293755580]
 scale = Vector2(3, 3)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_81u3t")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=96168672]
 sprite_frames = SubResource("SpriteFrames_xagnb")
-animation = &"chase_up"
+animation = &"chase_down"
 autoplay = "idle_right"
-frame_progress = 0.7265877
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=536377579]
 position = Vector2(-0.1666666, -1.8333334)
 shape = SubResource("RectangleShape2D_xagnb")
+
+[node name="Sight" type="Area2D" parent="." unique_id=1800754449]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sight" unique_id=813576605]
+shape = SubResource("CircleShape2D_xagnb")
+
+[connection signal="body_entered" from="Sight" to="." method="_on_sight_body_entered"]
