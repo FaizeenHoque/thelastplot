@@ -5,8 +5,14 @@ const SPEED = 150.0
 var last_direction: Vector2 = Vector2.DOWN
 var is_slashing: bool = false
 
+var range_offset: Vector2
+
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var swing_sword: AudioStreamPlayer2D = $SwingSword
+@onready var range: Area2D = $Range
+
+func _ready() -> void:
+	range_offset = range.position
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Slash") and not is_slashing:
@@ -25,6 +31,8 @@ func process_movement() -> void:
 	if direction != Vector2.ZERO:
 		velocity = direction * SPEED
 		last_direction = direction
+		
+		updateRangeOffset()
 	else:
 		velocity = Vector2.ZERO
 
@@ -55,3 +63,17 @@ func slash() -> void:
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if is_slashing:
 		is_slashing = false
+
+func updateRangeOffset() -> void:
+	var x := range_offset.x
+	var y := range_offset.y
+	
+	match last_direction:
+		Vector2.LEFT:
+			range.position = Vector2(-x, y)
+		Vector2.RIGHT:
+			range.position = Vector2(x, y)
+		Vector2.UP:
+			range.position = Vector2(y, -x)
+		Vector2.DOWN:
+			range.position = Vector2(-y, x)
