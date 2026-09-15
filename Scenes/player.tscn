@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://e1nfefbv2img" path="res://Assets/Player/Player.png" id="2_cvnsp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xagnb"]
-size = Vector2(57, 75)
+size = Vector2(11.4, 18.800003)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6t5aa"]
 atlas = ExtResource("2_cvnsp")
@@ -173,7 +173,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"idle_down",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -196,7 +196,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"idle_left",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -219,7 +219,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"idle_up",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -242,7 +242,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"walk_down",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -265,7 +265,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"walk_left",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -288,7 +288,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"walk_up",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [node name="Player" type="CharacterBody2D" unique_id=720209454]
@@ -296,9 +296,10 @@ scale = Vector2(5, 5)
 script = ExtResource("1_cvnsp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1582651222]
-position = Vector2(-3.5, 6.5)
+position = Vector2(-0.29999995, -0.9999998)
+scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_xagnb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=156911868]
 sprite_frames = SubResource("SpriteFrames_xagnb")
-animation = &"idle_left"
+animation = &"walk_up"
