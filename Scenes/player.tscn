@@ -282,7 +282,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sweqm")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"slash_down",
 "speed": 10.0
 }, {
@@ -299,7 +299,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_nmr2m")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"slash_left",
 "speed": 10.0
 }, {
@@ -316,7 +316,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5x828")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"slash_up",
 "speed": 10.0
 }, {
@@ -391,7 +391,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D" unique_id=720209454]
-scale = Vector2(5, 5)
+scale = Vector2(3, 3)
 script = ExtResource("1_cvnsp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1582651222]
@@ -402,3 +402,5 @@ shape = SubResource("RectangleShape2D_xagnb")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=156911868]
 sprite_frames = SubResource("SpriteFrames_xagnb")
 animation = &"slash_up"
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
