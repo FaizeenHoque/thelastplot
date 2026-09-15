@@ -391,6 +391,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o01uv"]
 size = Vector2(17.166668, 20.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fifeb"]
+size = Vector2(7.3333335, 17)
+
 [node name="Player" type="CharacterBody2D" unique_id=720209454]
 scale = Vector2(3, 3)
 script = ExtResource("1_cvnsp")
@@ -412,6 +415,10 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Range" unique_id=1810973143]
 position = Vector2(2.583334, 0.24999967)
 shape = SubResource("RectangleShape2D_o01uv")
+
+[node name="Hitbox" type="CollisionShape2D" parent="." unique_id=1484157100]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_fifeb")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
