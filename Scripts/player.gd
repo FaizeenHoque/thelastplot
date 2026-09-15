@@ -86,3 +86,5 @@ func updateRangeOffset() -> void:
 func _on_range_body_entered(body: Node2D) -> void:
 	if is_slashing and body.name.begins_with("Skeleton"):
 		body.take_damage(SLASH_STRENGTH, position)
+	elif is_slashing and body.name.begins_with("Slime"):
+		body.take_damage(SLASH_STRENGTH, position)

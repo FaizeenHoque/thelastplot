@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b331c7hq4tpm6"]
 
-[ext_resource type="Script" uid="uid://b518gwyylk7sp" path="res://Scripts/skeleton.gd" id="1_81u3t"]
+[ext_resource type="Script" uid="uid://b518gwyylk7sp" path="res://Scripts/enemyV1.gd" id="1_81u3t"]
 [ext_resource type="Texture2D" uid="uid://dap5t2xjhr2tn" path="res://Assets/Images/Enemies/Skeleton.png" id="1_sfdtf"]
 [ext_resource type="AudioStream" uid="uid://xivgdqlhkcbh" path="res://Assets/Audio/Roar.wav" id="3_vd5x3"]
 
