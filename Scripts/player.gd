@@ -6,6 +6,7 @@ var last_direction: Vector2 = Vector2.DOWN
 var is_slashing: bool = false
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var swing_sword: AudioStreamPlayer2D = $SwingSword
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Slash") and not is_slashing:
@@ -48,8 +49,8 @@ func play_animation(prefix: String, dir: Vector2) -> void:
 
 func slash() -> void:
 	is_slashing = true
+	swing_sword.play()
 	play_animation("slash", last_direction)	
-	print("Attack")
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if is_slashing:

@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://dkmybd5xnniul"]
 
 [ext_resource type="Script" uid="uid://b50gt5alf8rrf" path="res://Scripts/player.gd" id="1_cvnsp"]
-[ext_resource type="Texture2D" uid="uid://e1nfefbv2img" path="res://Assets/Player/Player.png" id="2_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://e1nfefbv2img" path="res://Assets/Images/Player/Player.png" id="2_cvnsp"]
+[ext_resource type="AudioStream" uid="uid://dwrun6415sgy3" path="res://Assets/Audio/Swooosh.wav" id="3_6t5aa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xagnb"]
 size = Vector2(11.4, 18.800003)
@@ -402,5 +403,9 @@ shape = SubResource("RectangleShape2D_xagnb")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=156911868]
 sprite_frames = SubResource("SpriteFrames_xagnb")
 animation = &"slash_up"
+
+[node name="SwingSword" type="AudioStreamPlayer2D" parent="." unique_id=47192031]
+stream = ExtResource("3_6t5aa")
+pitch_scale = 5.0
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
