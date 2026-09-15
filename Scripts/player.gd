@@ -52,7 +52,7 @@ func process_animation(direction: Vector2) -> void:
 func play_animation(prefix: String, dir: Vector2) -> void:
 	if dir.x != 0:
 		animated_sprite_2d.flip_h = dir.x < 0 
-		animated_sprite_2d.play(prefix + "_left")
+		animated_sprite_2d.play(prefix + "_right")
 	elif dir.y < 0:
 		animated_sprite_2d.play(prefix + "_up")
 	elif dir.y > 0:

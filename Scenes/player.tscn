@@ -241,7 +241,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_7dp3o")
 }],
 "loop": 1,
-"name": &"idle_left",
+"name": &"idle_right",
 "speed": 10.0
 }, {
 "frames": [{
@@ -298,7 +298,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_nmr2m")
 }],
 "loop": 0,
-"name": &"slash_left",
+"name": &"slash_right",
 "speed": 10.0
 }, {
 "frames": [{
@@ -361,7 +361,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_wohnl")
 }],
 "loop": 1,
-"name": &"walk_left",
+"name": &"walk_right",
 "speed": 10.0
 }, {
 "frames": [{
@@ -400,9 +400,7 @@ script = ExtResource("1_cvnsp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=156911868]
 sprite_frames = SubResource("SpriteFrames_xagnb")
-animation = &"slash_left"
-frame = 3
-frame_progress = 1.0
+animation = &"walk_right"
 
 [node name="SwingSword" type="AudioStreamPlayer2D" parent="." unique_id=47192031]
 stream = ExtResource("3_6t5aa")
