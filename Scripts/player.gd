@@ -15,6 +15,9 @@ func _ready() -> void:
 	range_offset = range.position
 
 func _physics_process(delta: float) -> void:
+	# Disable range until an attack is triggered
+	range.monitoring = false
+	
 	if Input.is_action_just_pressed("Slash") and not is_slashing:
 		slash()
 	
@@ -57,6 +60,7 @@ func play_animation(prefix: String, dir: Vector2) -> void:
 
 func slash() -> void:
 	is_slashing = true
+	range.monitoring = true
 	swing_sword.play()
 	play_animation("slash", last_direction)	
 
@@ -74,6 +78,10 @@ func updateRangeOffset() -> void:
 		Vector2.RIGHT:
 			range.position = Vector2(x, y)
 		Vector2.UP:
-			range.position = Vector2(y, -x)
+			range.position = Vector2(y-2.5, -x)
 		Vector2.DOWN:
-			range.position = Vector2(-y, x)
+			range.position = Vector2(-y-3.5, x)
+
+func _on_range_body_entered(body: Node2D) -> void:
+	if is_slashing and body.name.begins_with("Skeleton"):
+		print("Hit")
