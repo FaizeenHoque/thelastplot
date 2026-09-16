@@ -52,12 +52,17 @@ func take_damage(damage: int, attacker_position: Vector2) -> void:
 	if health <= 0:
 		_die()
 	else:
+		animated_sprite_2d.modulate = Color(1, 0, 0)
+		
 		var knockback_direction = (position - attacker_position).normalized()
 		var target_position = position + knockback_direction * KNOCKBACK_FORCE
 		var tween = create_tween()
 		tween.set_ease(Tween.EASE_OUT)
 		tween.set_trans(Tween.TRANS_CUBIC)
 		tween.tween_property(self, "position", target_position, 0.5)
+		
+		await get_tree().create_timer(0.15).timeout
+		animated_sprite_2d.modulate = Color(1, 1, 1)
 
 func _die() -> void:
 	is_alive = false
