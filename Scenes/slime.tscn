@@ -113,7 +113,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_r4o34")
 }],
 "loop": 1,
-"name": &"chase",
+"name": &"attack",
 "speed": 10.0
 }, {
 "frames": [{
@@ -169,11 +169,11 @@ radius = 150.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_5gljc"]
 radius = 250.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_xagnb"]
-radius = 19.336206
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vblni"]
 size = Vector2(16.333334, 12.333334)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o01uv"]
+radius = 35.668224
 
 [node name="Slime" type="CharacterBody2D" unique_id=2046605540]
 scale = Vector2(3, 3)
@@ -183,26 +183,28 @@ script = ExtResource("1_aiwxb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=912064751]
 sprite_frames = SubResource("SpriteFrames_xagnb")
-animation = &"chase"
+animation = &"attack"
 
 [node name="innerSight" type="Area2D" parent="." unique_id=1485250764]
+visible = false
 
 [node name="radius" type="CollisionShape2D" parent="innerSight" unique_id=1002927198]
 shape = SubResource("CircleShape2D_f4si1")
 
 [node name="outerSight" type="Area2D" parent="." unique_id=70928599]
+visible = false
 
 [node name="radius" type="CollisionShape2D" parent="outerSight" unique_id=1047619054]
 shape = SubResource("CircleShape2D_5gljc")
 
-[node name="range" type="Area2D" parent="." unique_id=1233524008]
-
-[node name="radius" type="CollisionShape2D" parent="range" unique_id=759491481]
-shape = SubResource("CircleShape2D_xagnb")
-
 [node name="hitbox" type="CollisionShape2D" parent="." unique_id=957904758]
 position = Vector2(0.16666698, -0.16666667)
 shape = SubResource("RectangleShape2D_vblni")
+
+[node name="range" type="Area2D" parent="." unique_id=1183906478]
+
+[node name="radius" type="CollisionShape2D" parent="range" unique_id=57202470]
+shape = SubResource("CircleShape2D_o01uv")
 
 [node name="TakeDamage" type="AudioStreamPlayer2D" parent="." unique_id=2143135235]
 stream = ExtResource("3_paq7w")
@@ -210,9 +212,10 @@ pitch_scale = 2.5
 
 [node name="Blood Particle Effect" parent="." unique_id=596861889 instance=ExtResource("4_paq7w")]
 
-[node name="AttackTimer" type="Timer" parent="." unique_id=950105114]
+[node name="AttackTimer" type="Timer" parent="." unique_id=906295849]
 
 [connection signal="body_entered" from="innerSight" to="." method="_on_inner_sight_body_entered"]
 [connection signal="body_exited" from="outerSight" to="." method="_on_outer_sight_body_exited"]
 [connection signal="body_entered" from="range" to="." method="_on_range_body_entered"]
+[connection signal="body_exited" from="range" to="." method="_on_range_body_exited"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

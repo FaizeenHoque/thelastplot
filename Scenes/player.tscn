@@ -3,6 +3,23 @@
 [ext_resource type="Script" uid="uid://b50gt5alf8rrf" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://e1nfefbv2img" path="res://Assets/Sprites/Player/Player.png" id="2_cvnsp"]
 [ext_resource type="AudioStream" uid="uid://dwrun6415sgy3" path="res://Assets/Audio/Swooosh.wav" id="3_6t5aa"]
+[ext_resource type="AudioStream" uid="uid://xivgdqlhkcbh" path="res://Assets/Audio/Roar.wav" id="4_vgqql"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1k8q"]
+atlas = ExtResource("2_cvnsp")
+region = Rect2(0, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6mvm"]
+atlas = ExtResource("2_cvnsp")
+region = Rect2(32, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57lvd"]
+atlas = ExtResource("2_cvnsp")
+region = Rect2(64, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ie7r7"]
+atlas = ExtResource("2_cvnsp")
+region = Rect2(96, 288, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6t5aa"]
 atlas = ExtResource("2_cvnsp")
@@ -198,6 +215,23 @@ region = Rect2(160, 160, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xagnb"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1k8q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6mvm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57lvd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ie7r7")
+}],
+"loop": 1,
+"name": &"die",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6t5aa")
@@ -400,7 +434,7 @@ script = ExtResource("1_cvnsp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=156911868]
 sprite_frames = SubResource("SpriteFrames_xagnb")
-animation = &"walk_right"
+animation = &"die"
 
 [node name="SwingSword" type="AudioStreamPlayer2D" parent="." unique_id=47192031]
 stream = ExtResource("3_6t5aa")
@@ -418,6 +452,14 @@ shape = SubResource("CircleShape2D_vd5x3")
 [node name="Hitbox" type="CollisionShape2D" parent="." unique_id=1484157100]
 position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_fifeb")
+
+[node name="Hurt" type="AudioStreamPlayer2D" parent="." unique_id=1487654654]
+stream = ExtResource("4_vgqql")
+pitch_scale = 5.0
+
+[node name="AttackCooldown" type="Timer" parent="." unique_id=1622770849]
+wait_time = 1.5
+one_shot = true
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]

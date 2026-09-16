@@ -13,7 +13,9 @@ var range_offset: Vector2
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var swing_sword: AudioStreamPlayer2D = $SwingSword
+@onready var hurt: AudioStreamPlayer2D = $Hurt
 @onready var range: Area2D = $Range
+@onready var attack_cooldown: Timer = $AttackCooldown
 
 func _ready() -> void:
 	health = PlayerStats.health
@@ -25,7 +27,7 @@ func _physics_process(delta: float) -> void:
 	# Disable range until an attack is triggered
 	range.monitoring = false
 	
-	if Input.is_action_just_pressed("Slash") and not is_slashing:
+	if Input.is_action_just_pressed("Slash") and not is_slashing and attack_cooldown.is_stopped():
 		slash()
 	
 	# skip movement if attacking
@@ -65,13 +67,22 @@ func play_animation(prefix: String, dir: Vector2) -> void:
 	elif dir.y > 0:
 		animated_sprite_2d.play(prefix + "_down") 
 
-func take_damage(amount: int) -> void:
+func take_damage(amount: int, knockback: int, attacker_position: Vector2) -> void:
 	health -= amount
+	hurt.play()
 	PlayerStats.health = health
+	
+	var knockback_direction = (position - attacker_position).normalized()
+	var target_position = position + knockback_direction * knockback
+	var tween = create_tween()
+	tween.set_ease(Tween.EASE_OUT)
+	tween.set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(self, "position", target_position, 0.5)
 
 func slash() -> void:
 	is_slashing = true
 	range.monitoring = true
+	attack_cooldown.start()
 	swing_sword.play()
 	play_animation("slash", last_direction)	
 

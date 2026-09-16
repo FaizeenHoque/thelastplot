@@ -2,16 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://dkmybd5xnniul" path="res://Scenes/player.tscn" id="1_c6y6c"]
 [ext_resource type="PackedScene" uid="uid://2rydxqlptngs" path="res://Scenes/hud.tscn" id="1_m4rby"]
-[ext_resource type="PackedScene" uid="uid://b331c7hq4tpm6" path="res://Scenes/skeleton.tscn" id="2_unpil"]
 [ext_resource type="PackedScene" uid="uid://bofeips6jd0fd" path="res://Scenes/slime.tscn" id="3_uuxpa"]
 
 [node name="Node2D" type="Node2D" unique_id=940180391]
 
 [node name="Slime" parent="." unique_id=2046605540 instance=ExtResource("3_uuxpa")]
 position = Vector2(286, 161)
-
-[node name="Skeleton" parent="." unique_id=1293755580 instance=ExtResource("2_unpil")]
-position = Vector2(262.00006, 480)
 
 [node name="Slime2" parent="." unique_id=1539507406 instance=ExtResource("3_uuxpa")]
 position = Vector2(614, 54)
