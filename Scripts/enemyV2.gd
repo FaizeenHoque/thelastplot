@@ -3,6 +3,7 @@ extends CharacterBody2D
 var HEALTH = 100
 const SPEED = 50.0
 const KNOCKBACK_FORCE = 50
+const STRENGHT = 10
 
 var is_alive := true
 var target = null
@@ -11,6 +12,8 @@ var last_direction: Vector2 = Vector2.DOWN
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var take_damage_sound: AudioStreamPlayer2D = $TakeDamage
 @onready var blood_particles: CPUParticles2D = $"Blood Particle Effect/CPUParticles2D"
+@onready var attack_timer: Timer = $AttackTimer
+@onready var range: Area2D = $range
 
 func _physics_process(delta: float) -> void:
 	#print("running")
@@ -69,3 +72,27 @@ func _on_inner_sight_body_entered(body: Node2D) -> void:
 func _on_outer_sight_body_exited(body: Node2D) -> void:
 	if body.name == "Player" and is_alive:
 		target = null
+
+func _on_range_body_entered(body: Node2D) -> void:
+	if body.name == "Player" and is_alive:
+		attack_timer.start()
+
+func _on_range_body_exited(body: Node2D) -> void:
+	if body.name == "Player":
+		attack_timer.stop()
+
+func _on_attack_timer_timeout() -> void:
+	if not is_alive or not target:
+		attack_timer.stop()
+		return
+
+	if not range.has_overlapping_bodies():
+		attack_timer.stop()
+		return
+
+	for body in range.get_overlapping_bodies():
+		if body.name == "Player":
+			body.take_damage(STRENGHT)
+			return
+
+	attack_timer.stop()

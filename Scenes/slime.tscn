@@ -169,6 +169,9 @@ radius = 150.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_5gljc"]
 radius = 250.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_xagnb"]
+radius = 19.336206
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vblni"]
 size = Vector2(16.333334, 12.333334)
 
@@ -192,6 +195,11 @@ shape = SubResource("CircleShape2D_f4si1")
 [node name="radius" type="CollisionShape2D" parent="outerSight" unique_id=1047619054]
 shape = SubResource("CircleShape2D_5gljc")
 
+[node name="range" type="Area2D" parent="." unique_id=1233524008]
+
+[node name="radius" type="CollisionShape2D" parent="range" unique_id=759491481]
+shape = SubResource("CircleShape2D_xagnb")
+
 [node name="hitbox" type="CollisionShape2D" parent="." unique_id=957904758]
 position = Vector2(0.16666698, -0.16666667)
 shape = SubResource("RectangleShape2D_vblni")
@@ -202,5 +210,9 @@ pitch_scale = 2.5
 
 [node name="Blood Particle Effect" parent="." unique_id=596861889 instance=ExtResource("4_paq7w")]
 
+[node name="AttackTimer" type="Timer" parent="." unique_id=950105114]
+
 [connection signal="body_entered" from="innerSight" to="." method="_on_inner_sight_body_entered"]
 [connection signal="body_exited" from="outerSight" to="." method="_on_outer_sight_body_exited"]
+[connection signal="body_entered" from="range" to="." method="_on_range_body_entered"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
