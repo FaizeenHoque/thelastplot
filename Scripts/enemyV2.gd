@@ -61,6 +61,8 @@ func _die() -> void:
 	$outerSight/radius.set_deferred("disabled", true)
 	$hitbox.set_deferred("disabled", true)
 	
+	z_index = -100
+	
 func _on_inner_sight_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		target = body

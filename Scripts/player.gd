@@ -3,6 +3,9 @@ extends CharacterBody2D
 const SPEED = 150.0
 const SLASH_STRENGTH = 20
 
+var MAX_HEALTH: int
+var health: int
+
 var last_direction: Vector2 = Vector2.DOWN
 var is_slashing: bool = false
 
@@ -13,6 +16,9 @@ var range_offset: Vector2
 @onready var range: Area2D = $Range
 
 func _ready() -> void:
+	health = PlayerStats.health
+	MAX_HEALTH = PlayerStats.max_health
+	
 	range_offset = range.position
 
 func _physics_process(delta: float) -> void:
@@ -58,6 +64,10 @@ func play_animation(prefix: String, dir: Vector2) -> void:
 		animated_sprite_2d.play(prefix + "_up")
 	elif dir.y > 0:
 		animated_sprite_2d.play(prefix + "_down") 
+
+func take_damage(amount: int) -> void:
+	health -= amount
+	PlayerStats.health = health
 
 func slash() -> void:
 	is_slashing = true

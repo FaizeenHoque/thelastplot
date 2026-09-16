@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dkmybd5xnniul"]
 
 [ext_resource type="Script" uid="uid://b50gt5alf8rrf" path="res://Scripts/player.gd" id="1_cvnsp"]
-[ext_resource type="Texture2D" uid="uid://e1nfefbv2img" path="res://Assets/Images/Player/Player.png" id="2_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://e1nfefbv2img" path="res://Assets/Sprites/Player/Player.png" id="2_cvnsp"]
 [ext_resource type="AudioStream" uid="uid://dwrun6415sgy3" path="res://Assets/Audio/Swooosh.wav" id="3_6t5aa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6t5aa"]

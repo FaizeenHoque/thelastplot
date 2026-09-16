@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://2rydxqlptngs"]
+
+[ext_resource type="Texture2D" uid="uid://wk03yk7pqr" path="res://Assets/UI/Bars/progress bar medium rounded under.png" id="1_bjfho"]
+[ext_resource type="Texture2D" uid="uid://c4to3glpoe236" path="res://Assets/UI/Bars/progress bar least rounded over.png" id="1_fccik"]
+[ext_resource type="Texture2D" uid="uid://bp0x50v6ncuer" path="res://Assets/UI/Bars/progress bar least rounded progress red.png" id="2_bjfho"]
+
+[node name="HUD" type="Node2D" unique_id=418181721]
+position = Vector2(0, 608)
+scale = Vector2(5, 5)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=885799508]
+offset_left = 0.6
+offset_top = -1.1999999
+offset_right = 40.6
+offset_bottom = 38.8
+value = 30.0
+texture_under = ExtResource("1_bjfho")
+texture_over = ExtResource("1_fccik")
+texture_progress = ExtResource("2_bjfho")

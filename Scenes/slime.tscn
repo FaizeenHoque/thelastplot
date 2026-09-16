@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bofeips6jd0fd"]
 
 [ext_resource type="Script" uid="uid://cgjaogogy327y" path="res://Scripts/enemyV2.gd" id="1_aiwxb"]
-[ext_resource type="Texture2D" uid="uid://cw4apv5ijsvyn" path="res://Assets/Images/Enemies/Slime_Green.png" id="1_jokqx"]
+[ext_resource type="Texture2D" uid="uid://cw4apv5ijsvyn" path="res://Assets/Sprites/Enemies/Slime_Green.png" id="1_jokqx"]
 [ext_resource type="AudioStream" uid="uid://xivgdqlhkcbh" path="res://Assets/Audio/Roar.wav" id="3_paq7w"]
 [ext_resource type="PackedScene" uid="uid://baqh1bucn5sb6" path="res://Effects/Particles/blood_particle_effect.tscn" id="4_paq7w"]
 
