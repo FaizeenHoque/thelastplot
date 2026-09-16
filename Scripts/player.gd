@@ -26,6 +26,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	# Disable range until an attack is triggered
 	range.monitoring = false
+	PlayerStats.slash_cooldown = attack_cooldown.time_left
 	
 	if Input.is_action_just_pressed("Slash") and not is_slashing and attack_cooldown.is_stopped():
 		slash()
