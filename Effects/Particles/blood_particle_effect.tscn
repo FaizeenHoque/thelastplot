@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://baqh1bucn5sb6"]
+
+[sub_resource type="Curve" id="Curve_xagnb"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5352564, 0.35000002), -1.3722216, -1.3722216, 0, 0, Vector2(1, 0.008333325), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_fifeb"]
+colors = PackedColorArray(0.42318463, 9.0846794e-07, 3.128499e-07, 1, 1, 1, 1, 1)
+
+[node name="Blood Particle Effect" type="Node2D" unique_id=596861889]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1301336016]
+amount = 20
+lifetime = 0.5
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 50)
+initial_velocity_min = 15.0
+initial_velocity_max = 30.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_xagnb")
+color = Color(1, 0, 0, 1)
+color_initial_ramp = SubResource("Gradient_fifeb")
+hue_variation_min = 1.0
+hue_variation_max = 1.0
