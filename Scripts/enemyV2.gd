@@ -10,18 +10,17 @@ var last_direction: Vector2 = Vector2.DOWN
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var take_damage_sound: AudioStreamPlayer2D = $TakeDamage
-
 @onready var blood_particles: CPUParticles2D = $"Blood Particle Effect/CPUParticles2D"
 
 func _physics_process(delta: float) -> void:
 	#print("running")
 	if is_alive and target:
-		_attack(delta)
+		_chase(delta)
 	elif is_alive and not target:
 		animated_sprite_2d.play("idle")
 	move_and_slide()
 
-func _attack(delta: float) -> void:
+func _chase(delta: float) -> void:
 	#print("Found target")
 	var direction = (target.position - position).normalized()
 	position += direction * SPEED * delta

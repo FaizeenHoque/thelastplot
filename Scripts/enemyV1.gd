@@ -13,7 +13,7 @@ var last_direction: Vector2 = Vector2.DOWN
 
 func _physics_process(delta: float) -> void:
 	if is_alive and target:
-		_attack(delta)
+		_chase(delta)
 	elif is_alive and not target:
 		match last_direction:
 			Vector2.UP:
@@ -27,7 +27,7 @@ func _physics_process(delta: float) -> void:
 				animated_sprite_2d.play("idle_right")
 	move_and_slide()
 
-func _attack(delta: float) -> void:
+func _chase(delta: float) -> void:
 	var direction = (target.position - position).normalized()
 	position += direction * SPEED * delta
 	
