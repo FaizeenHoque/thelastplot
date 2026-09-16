@@ -11,6 +11,8 @@ var last_direction: Vector2 = Vector2.DOWN
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var take_damage_sound: AudioStreamPlayer2D = $TakeDamage
 
+@onready var blood_particles: CPUParticles2D = $"Blood Particle Effect/CPUParticles2D"
+
 func _physics_process(delta: float) -> void:
 	#print("running")
 	if is_alive and target:
@@ -34,7 +36,8 @@ func take_damage(damage: int, attacker_position: Vector2) -> void:
 		_die()
 	else:
 		animated_sprite_2d.modulate = Color(1, 0, 0)
-	
+		blood_particles.emitting = true
+		
 		var knockback_direction = (position - attacker_position).normalized()
 		var target_position = position + knockback_direction * KNOCKBACK_FORCE
 		var tween = create_tween()
@@ -47,6 +50,8 @@ func take_damage(damage: int, attacker_position: Vector2) -> void:
 
 func _die() -> void:
 	is_alive = false
+	
+	blood_particles.emitting = true
 	animated_sprite_2d.play("death")
 	
 	take_damage_sound.pitch_scale = 1.75

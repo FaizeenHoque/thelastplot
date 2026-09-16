@@ -8,16 +8,20 @@ point_count = 3
 colors = PackedColorArray(0.42318463, 9.0846794e-07, 3.128499e-07, 1, 1, 1, 1, 1)
 
 [node name="Blood Particle Effect" type="Node2D" unique_id=596861889]
+scale = Vector2(5, 5)
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1301336016]
+emitting = false
 amount = 20
-lifetime = 0.5
+lifetime = 0.4
+one_shot = true
 explosiveness = 1.0
 spread = 180.0
-gravity = Vector2(0, 50)
+gravity = Vector2(0, 1000)
 initial_velocity_min = 15.0
 initial_velocity_max = 30.0
-scale_amount_max = 2.0
+scale_amount_min = 5.0
+scale_amount_max = 10.0
 scale_amount_curve = SubResource("Curve_xagnb")
 color = Color(1, 0, 0, 1)
 color_initial_ramp = SubResource("Gradient_fifeb")
