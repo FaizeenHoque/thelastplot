@@ -1,4 +1,4 @@
-# The Last Plot
+# The Last Plot -  A HARVEST THEMED GAME!
 
 ---
 
