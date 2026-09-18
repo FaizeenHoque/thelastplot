@@ -33,6 +33,6 @@ position = Vector2(414, 274)
 [node name="Skeleton2" parent="." unique_id=1242250078 instance=ExtResource("6_6juqn")]
 position = Vector2(250, 365)
 
-[node name="Node2D" parent="." unique_id=1528579859 instance=ExtResource("7_bcjpy")]
+[node name="Crop" parent="." unique_id=1528579859 instance=ExtResource("7_bcjpy")]
 position = Vector2(267, 285)
 scale = Vector2(2, 2)
