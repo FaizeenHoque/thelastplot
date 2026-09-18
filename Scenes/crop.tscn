@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://d04v0qpcpo4dn"]
+
+[ext_resource type="Texture2D" uid="uid://b1irgam53wkjd" path="res://Assets/Sprites/crop-Sheet.png" id="1_7rxg7"]
+[ext_resource type="Script" uid="uid://dfy5uuoe06km8" path="res://Scripts/chop.gd" id="1_djpt6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_djpt6"]
+atlas = ExtResource("1_7rxg7")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rqw3c"]
+atlas = ExtResource("1_7rxg7")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wi28c"]
+atlas = ExtResource("1_7rxg7")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_werqa"]
+atlas = ExtResource("1_7rxg7")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jc262"]
+atlas = ExtResource("1_7rxg7")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpum5"]
+atlas = ExtResource("1_7rxg7")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8vrlf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_djpt6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rqw3c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wi28c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_werqa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jc262")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpum5")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 16.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vivr"]
+size = Vector2(10, 15)
+
+[sub_resource type="Animation" id="Animation_7rxg7"]
+resource_name = "chop"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_djpt6"]
+_data = {
+&"chop": SubResource("Animation_7rxg7")
+}
+
+[node name="Node2D" type="Node2D" unique_id=1528579859]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1584252157]
+script = ExtResource("1_djpt6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D" unique_id=2083763822]
+sprite_frames = SubResource("SpriteFrames_8vrlf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=385384616]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_1vivr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D" unique_id=1877403139]
+libraries/ = SubResource("AnimationLibrary_djpt6")
