@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dx3pus68nvpnc"
-path="res://.godot/imported/Sheep.png-885fe81e4c85016d72bf79838a0db43d.ctex"
+uid="uid://b4byijfli8wfn"
+path="res://.godot/imported/U_Walk.png-795c74432510ef220796b8fac5f30796.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Animals/Sheep/Sheep.png"
-dest_files=["res://.godot/imported/Sheep.png-885fe81e4c85016d72bf79838a0db43d.ctex"]
+source_file="res://Assets/Sprites/Animals/dog/U_Walk.png"
+dest_files=["res://.godot/imported/U_Walk.png-795c74432510ef220796b8fac5f30796.ctex"]
 
 [params]
 

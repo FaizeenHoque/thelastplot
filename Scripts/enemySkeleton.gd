@@ -9,6 +9,9 @@ var last_direction: Vector2 = Vector2.DOWN
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var take_damage_sound: AudioStreamPlayer2D = $TakeDamage
 
+func _ready() -> void:
+	z_index = -100
+
 func _physics_process(delta: float) -> void:
 	if is_alive:
 		match last_direction:
@@ -51,4 +54,4 @@ func _die() -> void:
 	
 	$hitbox.set_deferred("disabled", true)
 	
-	z_index = -100
+	z_index = -101

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dq82mnwjypaqq"
-path="res://.godot/imported/Cow.png-97fc28d5a2b5cd86bb636f0dae757f11.ctex"
+uid="uid://bvtu3c5gw2yjd"
+path="res://.godot/imported/S_Attack.png-8226313c554c5f4658eff928ea223257.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Animals/Cow/Cow.png"
-dest_files=["res://.godot/imported/Cow.png-97fc28d5a2b5cd86bb636f0dae757f11.ctex"]
+source_file="res://Assets/Sprites/Animals/dog/S_Attack.png"
+dest_files=["res://.godot/imported/S_Attack.png-8226313c554c5f4658eff928ea223257.ctex"]
 
 [params]
 

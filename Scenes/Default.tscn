@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://2rydxqlptngs" path="res://Scenes/hud.tscn" id="1_m4rby"]
 [ext_resource type="PackedScene" uid="uid://b331c7hq4tpm6" path="res://Scenes/skeleton.tscn" id="2_unpil"]
 [ext_resource type="PackedScene" uid="uid://ckifls00np74n" path="res://Scenes/ground.tscn" id="4_m4rby"]
+[ext_resource type="PackedScene" uid="uid://bofeips6jd0fd" path="res://Scenes/slime.tscn" id="5_36hkq"]
+[ext_resource type="PackedScene" uid="uid://c2ohuamjd1ju6" path="res://Scenes/dog.tscn" id="6_6juqn"]
 
 [node name="Node2D" type="Node2D" unique_id=940180391]
 
@@ -21,4 +23,11 @@ scale = Vector2(1.6666667, 1.6666667)
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=868793185]
 position = Vector2(-1.3333435, 1.6666641)
 
-[node name="Node2D" parent="." unique_id=28402432 instance=ExtResource("4_m4rby")]
+[node name="Map" parent="." unique_id=28402432 instance=ExtResource("4_m4rby")]
+z_index = -200
+
+[node name="Slime" parent="." unique_id=2046605540 instance=ExtResource("5_36hkq")]
+position = Vector2(414, 274)
+
+[node name="Skeleton2" parent="." unique_id=1242250078 instance=ExtResource("6_6juqn")]
+position = Vector2(250, 365)

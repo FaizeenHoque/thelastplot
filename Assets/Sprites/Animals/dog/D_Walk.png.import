@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5yvq24uu7rbm"
-path="res://.godot/imported/Pig.png-0512e5ae7679eb7b95a8caba99820e42.ctex"
+uid="uid://joeiwhotxjm8"
+path="res://.godot/imported/D_Walk.png-4311364b877f82f4af9b5b5b38a72bdc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Animals/Pig/Pig.png"
-dest_files=["res://.godot/imported/Pig.png-0512e5ae7679eb7b95a8caba99820e42.ctex"]
+source_file="res://Assets/Sprites/Animals/dog/D_Walk.png"
+dest_files=["res://.godot/imported/D_Walk.png-4311364b877f82f4af9b5b5b38a72bdc.ctex"]
 
 [params]
 
