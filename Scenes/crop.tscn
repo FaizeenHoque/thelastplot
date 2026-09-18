@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://d04v0qpcpo4dn"]
 
 [ext_resource type="Texture2D" uid="uid://b1irgam53wkjd" path="res://Assets/Sprites/crop-Sheet.png" id="1_7rxg7"]
-[ext_resource type="Script" uid="uid://dfy5uuoe06km8" path="res://Scripts/chop.gd" id="1_djpt6"]
+[ext_resource type="Script" uid="uid://delqmf4xhljjw" path="res://Scripts/crop.gd" id="1_rqw3c"]
+[ext_resource type="AudioStream" uid="uid://xivgdqlhkcbh" path="res://Assets/Audio/Roar.wav" id="2_djpt6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_djpt6"]
 atlas = ExtResource("1_7rxg7")
@@ -27,6 +28,10 @@ region = Rect2(128, 0, 32, 32)
 atlas = ExtResource("1_7rxg7")
 region = Rect2(160, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wdef"]
+atlas = ExtResource("1_7rxg7")
+region = Rect2(0, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_8vrlf"]
 animations = [{
 "frames": [{
@@ -48,33 +53,34 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gpum5")
 }],
-"loop": 1,
-"name": &"default",
-"speed": 16.0
+"loop": 0,
+"name": &"death",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3wdef")
+}],
+"loop": 0,
+"name": &"idle",
+"speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vivr"]
-size = Vector2(10, 15)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7rxg7"]
+size = Vector2(14, 24)
 
-[sub_resource type="Animation" id="Animation_7rxg7"]
-resource_name = "chop"
+[node name="Crop" type="CharacterBody2D" unique_id=1777302916]
+scale = Vector2(2, 2)
+script = ExtResource("1_rqw3c")
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_djpt6"]
-_data = {
-&"chop": SubResource("Animation_7rxg7")
-}
-
-[node name="Node2D" type="Node2D" unique_id=1528579859]
-
-[node name="Area2D" type="Area2D" parent="." unique_id=1584252157]
-script = ExtResource("1_djpt6")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D" unique_id=2083763822]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1901149767]
 sprite_frames = SubResource("SpriteFrames_8vrlf")
+animation = &"death"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=385384616]
-position = Vector2(0, -0.5)
-shape = SubResource("RectangleShape2D_1vivr")
+[node name="hitbox" type="CollisionShape2D" parent="." unique_id=805452002]
+position = Vector2(-1.1920929e-07, -1.0000005)
+shape = SubResource("RectangleShape2D_7rxg7")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D" unique_id=1877403139]
-libraries/ = SubResource("AnimationLibrary_djpt6")
+[node name="TakeDamage" type="AudioStreamPlayer2D" parent="." unique_id=1420686332]
+stream = ExtResource("2_djpt6")
+pitch_scale = 0.75

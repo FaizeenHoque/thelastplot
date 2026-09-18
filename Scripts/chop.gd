@@ -9,7 +9,7 @@ func _ready() -> void:
 	sprite.frame = 0
 	sprite.stop()
 
-func chop() -> void:
+func die() -> void:
 	collision.set_deferred("disabled", true)
 	sprite.play("chop")
 	
