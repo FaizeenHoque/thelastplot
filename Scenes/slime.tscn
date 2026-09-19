@@ -166,10 +166,13 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vblni"]
 size = Vector2(16.333334, 12.333334)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_paq7w"]
+radius = 1.0540925
+
 [node name="Slime" type="CharacterBody2D" unique_id=2046605540 groups=["enemy"]]
 scale = Vector2(3, 3)
 collision_layer = 2
-collision_mask = 2
+collision_mask = 0
 script = ExtResource("1_aiwxb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=912064751]
@@ -185,3 +188,8 @@ stream = ExtResource("3_paq7w")
 pitch_scale = 2.5
 
 [node name="Blood Particle Effect" parent="." unique_id=596861889 instance=ExtResource("4_paq7w")]
+
+[node name="Center" type="Area2D" parent="." unique_id=203792053]
+
+[node name="radius" type="CollisionShape2D" parent="Center" unique_id=1966047999]
+shape = SubResource("CircleShape2D_paq7w")

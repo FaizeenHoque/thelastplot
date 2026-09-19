@@ -8,6 +8,7 @@ var last_direction: Vector2 = Vector2.DOWN
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var take_damage_sound: AudioStreamPlayer2D = $TakeDamage
+@onready var map = get_tree().current_scene.get_node("Map/TileMap")
 
 func _ready() -> void:
 	z_index = -2
@@ -23,6 +24,13 @@ func _physics_process(delta: float) -> void:
 				animated_sprite_2d.flip_h = last_direction.x < 0
 				animated_sprite_2d.play("idle_side")
 	move_and_slide()
+	
+	var tile_pos = map.local_to_map(map.to_local($Center.global_position))
+	var tile_data = map.get_cell_tile_data(tile_pos)
+
+	if is_alive and tile_data and tile_data.get_custom_data("is_water"):
+		_die()
+	
 
 func take_damage(damage: int, attacker_position: Vector2) -> void:
 	health -= damage

@@ -325,10 +325,13 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xagnb"]
 size = Vector2(9.666667, 16.333334)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_xagnb"]
+radius = 1.0540925
+
 [node name="Skeleton" type="CharacterBody2D" unique_id=1293755580 groups=["enemy"]]
 scale = Vector2(3, 3)
 collision_layer = 2
-collision_mask = 2
+collision_mask = 0
 script = ExtResource("1_81u3t")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=96168672]
@@ -343,3 +346,11 @@ shape = SubResource("RectangleShape2D_xagnb")
 [node name="TakeDamage" type="AudioStreamPlayer2D" parent="." unique_id=104389404]
 stream = ExtResource("3_vd5x3")
 pitch_scale = 0.75
+
+[node name="Center" type="Area2D" parent="." unique_id=543640580]
+
+[node name="radius" type="CollisionShape2D" parent="Center" unique_id=2033697296]
+position = Vector2(0.33333334, -1)
+shape = SubResource("CircleShape2D_xagnb")
+
+[connection signal="body_entered" from="Center" to="." method="_on_center_body_entered"]
