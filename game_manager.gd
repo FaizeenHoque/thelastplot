@@ -1,9 +1,9 @@
 extends Node
 
-var time := 0.0
+var time := 180.0
 const DAY_LENGTH := 1200.0
 
-var CurrentCycle := "Night"
+var CurrentCycle := "Day"
 
 @onready var canvas_modulate = get_tree().current_scene.get_node("CanvasModulate")
 var cropScene = preload("res://Scenes/crop.tscn")
