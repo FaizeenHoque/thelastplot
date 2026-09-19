@@ -33,7 +33,6 @@ func generateWorld():
 		map.add_child(crop)
 
 func _ready() -> void:
-	print("ready")
 	generateWorld()
 
 func _process(delta):

@@ -2,9 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://wk03yk7pqr" path="res://Assets/UI/Bars/progress bar medium rounded under.png" id="1_bjfho"]
 [ext_resource type="Texture2D" uid="uid://c4to3glpoe236" path="res://Assets/UI/Bars/progress bar least rounded over.png" id="1_fccik"]
-[ext_resource type="Texture2D" uid="uid://bp0x50v6ncuer" path="res://Assets/UI/Bars/progress bar least rounded progress red.png" id="2_bjfho"]
 [ext_resource type="Texture2D" uid="uid://druw7w867m42h" path="res://Assets/UI/Bars/progress bar medium rounded progress blue.png" id="3_t1xeu"]
-[ext_resource type="Script" uid="uid://cgjnsqfc2d3e4" path="res://Scripts/health_bar.gd" id="4_6fbih"]
 [ext_resource type="Script" uid="uid://dyfnitk801qqs" path="res://Scripts/slash_cooldown.gd" id="4_36asn"]
 
 [node name="HUD" type="Node2D" unique_id=418181721]
@@ -23,14 +21,3 @@ texture_under = ExtResource("1_bjfho")
 texture_over = ExtResource("1_fccik")
 texture_progress = ExtResource("3_t1xeu")
 script = ExtResource("4_36asn")
-
-[node name="health_bar" type="TextureProgressBar" parent="." unique_id=885799508]
-offset_left = 0.6
-offset_top = -1.1999999
-offset_right = 40.6
-offset_bottom = 38.8
-value = 100.0
-texture_under = ExtResource("1_bjfho")
-texture_over = ExtResource("1_fccik")
-texture_progress = ExtResource("2_bjfho")
-script = ExtResource("4_6fbih")

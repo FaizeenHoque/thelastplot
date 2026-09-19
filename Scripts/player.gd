@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-const SPEED = 150.0
-const SLASH_STRENGTH = 20
+var SPEED = 150.0
+var SLASH_STRENGTH = 20
 
 var MAX_HEALTH: int
 var health: int

@@ -13,6 +13,7 @@ var last_direction: Vector2 = Vector2.DOWN
 @onready var crop_break_particle: CPUParticles2D = $"Crop Break Particle Effect/CPUParticles2D"
 
 func _ready() -> void:
+	print("ready")
 	z_index = 1
 
 func _physics_process(delta: float) -> void:
@@ -20,22 +21,14 @@ func _physics_process(delta: float) -> void:
 		animated_sprite_2d.play("idle")
 
 func take_damage(damage: int, attacker_position: Vector2) -> void:
-	#print("Damage taken")
+	print("Damage taken")
 	HEALTH -= damage
-	#take_damage_sound.play()
+	take_damage_sound.play()
 	
 	if HEALTH <= 0:
 		_die(attacker_position)
 	else:
 		animated_sprite_2d.modulate = Color(1, 1, 0)
-		
-		#var knockback_direction = (position - attacker_position).normalized()
-		#var target_position = position + knockback_direction * 50
-		#var tween = create_tween()
-		#tween.set_ease(Tween.EASE_OUT)
-		#tween.set_trans(Tween.TRANS_CUBIC)
-		#tween.tween_property(self, "position", target_position, 0.5)
-		
 		crop_break_particle.emitting = true
 		
 		await get_tree().create_timer(0.15).timeout
@@ -45,18 +38,11 @@ func take_damage(damage: int, attacker_position: Vector2) -> void:
 func _die(attacker_position: Vector2) -> void:
 	is_alive = false
 	
-	#var knockback_direction = (position - attacker_position).normalized()
-	#var target_position = position + knockback_direction * 200
-	#var tween = create_tween()
-	#tween.set_ease(Tween.EASE_OUT)
-	#tween.set_trans(Tween.TRANS_CUBIC)
-	#tween.tween_property(self, "position", target_position, 0.5)
-	
 	crop_break_particle.emitting = true
 	animated_sprite_2d.play("death")
 	
-	#take_damage_sound.pitch_scale = 1.75
-	#take_damage_sound.play()
+	take_damage_sound.pitch_scale = 1.75
+	take_damage_sound.play()
 	
 	$hitbox.set_deferred("disabled", true)
 	

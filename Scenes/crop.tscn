@@ -68,7 +68,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7rxg7"]
-size = Vector2(14, 24)
+size = Vector2(13.333334, 23.333336)
 
 [node name="Crop" type="Area2D" unique_id=355250924]
 scale = Vector2(1.5, 1.5)
@@ -76,10 +76,10 @@ script = ExtResource("1_rqw3c")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1901149767]
 sprite_frames = SubResource("SpriteFrames_8vrlf")
-animation = &"death"
+animation = &"idle"
 
 [node name="hitbox" type="CollisionShape2D" parent="." unique_id=805452002]
-position = Vector2(-1.1920929e-07, -1.0000005)
+position = Vector2(-2.3841858e-07, -1)
 shape = SubResource("RectangleShape2D_7rxg7")
 
 [node name="TakeDamage" type="AudioStreamPlayer2D" parent="." unique_id=1420686332]
