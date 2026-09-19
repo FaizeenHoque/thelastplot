@@ -1,8 +1,8 @@
 extends Node
 
-var time := 839.0
+var time := 300.0 # Starting the game bright and shiny to let the player harvest some crops (before defending them)
 const DAY_LENGTH := 1200.0
-
+var nIterations = 1
 var CurrentCycle := "Day"
 
 @onready var canvas_modulate = get_tree().current_scene.get_node("CanvasModulate")
@@ -22,14 +22,18 @@ var day := Color("#ffffff")
 var sunset := Color("#d89b72")
 
 func generateWorld():
-	for x in range(10):
-		for y in range(10):
-			var crop = cropScene.instantiate()
-			crop.position = Vector2((x - 2) * 40, (y - 2) * 40)
-			add_child(crop)
+	var tilemap = get_tree().current_scene.get_node("Map/MudLayer")
+	
+	var painted_cells = tilemap.get_used_cells()
+	
+	for cell in painted_cells:
+		var crop = cropScene.instantiate()
+		
+		crop.global_position = tilemap.map_to_local(cell)
+		map.add_child(crop)
 
 func _ready() -> void:
-	generateWorld()
+	"generateWorld"
 
 func _process(delta):
 	time += delta
@@ -61,14 +65,17 @@ func _process(delta):
 			enemies_spawned = false
 		"Day":
 			pass
+			#if nIterations == 1:
+				#generateWorld()
 		"Sunset":
 			pass
 		"Night":
 			if not enemies_spawned:
 				spawn_enemies()
 				enemies_spawned = true
+			nIterations += 1
 
-	#print("Current Time: ", t, " | Current Cycle: ", CurrentCycle)
+	print("Current Time: ", t, " | Current Cycle: ", CurrentCycle)
 	
 func spawn_enemies():
 	var enemies = [slime, skeleton, dog]
