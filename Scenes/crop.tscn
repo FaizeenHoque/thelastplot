@@ -72,6 +72,7 @@ size = Vector2(13.333334, 23.333336)
 
 [node name="Crop" type="Area2D" unique_id=355250924]
 scale = Vector2(1.5, 1.5)
+collision_layer = 2
 script = ExtResource("1_rqw3c")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1901149767]
@@ -87,3 +88,5 @@ stream = ExtResource("2_djpt6")
 pitch_scale = 0.75
 
 [node name="Crop Break Particle Effect" parent="." unique_id=596861889 instance=ExtResource("4_wi28c")]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

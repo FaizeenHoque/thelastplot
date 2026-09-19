@@ -108,3 +108,8 @@ func updateRangeOffset() -> void:
 func _on_range_body_entered(body: Node2D) -> void:
 	if is_slashing and body.is_in_group("enemy"):
 		body.take_damage(SLASH_STRENGTH, position)
+
+func _on_range_area_entered(area: Area2D) -> void:
+	print("gng")
+	if is_slashing and area.has_method("take_damage"):
+		area.take_damage(SLASH_STRENGTH, position)

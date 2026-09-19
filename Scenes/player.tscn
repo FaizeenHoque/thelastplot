@@ -461,4 +461,5 @@ pitch_scale = 5.0
 one_shot = true
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="area_entered" from="Range" to="." method="_on_range_area_entered"]
 [connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
