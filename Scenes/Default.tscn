@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dkmybd5xnniul" path="res://Scenes/player.tscn" id="1_c6y6c"]
 [ext_resource type="PackedScene" uid="uid://2rydxqlptngs" path="res://Scenes/hud.tscn" id="1_m4rby"]
+[ext_resource type="PackedScene" uid="uid://cw01hfeheb127" path="res://Scenes/Timer.tscn" id="4_36hkq"]
 [ext_resource type="PackedScene" uid="uid://ckifls00np74n" path="res://Scenes/Map.tscn" id="4_m4rby"]
 
 [node name="Node2D" type="Node2D" unique_id=940180391]
@@ -18,5 +19,8 @@ scale = Vector2(1.6666667, 1.6666667)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=868793185]
 position = Vector2(-1.3333435, 1.6666641)
+
+[node name="Node2D" parent="Player" unique_id=1152060217 instance=ExtResource("4_36hkq")]
+position = Vector2(139.33334, -100.66667)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=617159154]

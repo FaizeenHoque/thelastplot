@@ -33,7 +33,8 @@ func generateWorld():
 		map.add_child(crop)
 
 func _ready() -> void:
-	"generateWorld"
+	print("ready")
+	generateWorld()
 
 func _process(delta):
 	time += delta
@@ -75,7 +76,7 @@ func _process(delta):
 				enemies_spawned = true
 			nIterations += 1
 
-	print("Current Time: ", t, " | Current Cycle: ", CurrentCycle)
+	#print("Current Time: ", t, " | Current Cycle: ", CurrentCycle)
 	
 func spawn_enemies():
 	var enemies = [slime, skeleton, dog]

@@ -13,7 +13,7 @@ var last_direction: Vector2 = Vector2.DOWN
 @onready var crop_break_particle: CPUParticles2D = $"Crop Break Particle Effect/CPUParticles2D"
 
 func _ready() -> void:
-	z_index = -2
+	z_index = 1
 
 func _physics_process(delta: float) -> void:
 	if is_alive:

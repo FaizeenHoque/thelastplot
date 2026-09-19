@@ -71,7 +71,7 @@ animations = [{
 size = Vector2(14, 24)
 
 [node name="Crop" type="Area2D" unique_id=355250924]
-scale = Vector2(2, 2)
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_rqw3c")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1901149767]
