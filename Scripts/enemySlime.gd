@@ -13,7 +13,7 @@ var last_direction: Vector2 = Vector2.DOWN
 @onready var blood_particles: CPUParticles2D = $"Blood Particle Effect/CPUParticles2D"
 
 func _ready() -> void:
-	z_index = -100
+	z_index = -2
 
 func _physics_process(delta: float) -> void:
 	if is_alive:
@@ -61,5 +61,5 @@ func _die(attacker_position: Vector2) -> void:
 	
 	$hitbox.set_deferred("disabled", true)
 	
-	z_index = -101
+	z_index = -3
 	

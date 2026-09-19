@@ -333,10 +333,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xagnb"]
 size = Vector2(9.666667, 16.333334)
 
-[node name="Dog" type="CharacterBody2D" unique_id=1293755580]
+[node name="Dog" type="CharacterBody2D" unique_id=1293755580 groups=["enemy"]]
 scale = Vector2(3, 3)
 collision_layer = 2
-collision_mask = 0
+collision_mask = 2
 script = ExtResource("1_wkkfr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=96168672]
@@ -348,6 +348,6 @@ autoplay = "idle_side"
 position = Vector2(-0.1666666, -1.8333334)
 shape = SubResource("RectangleShape2D_xagnb")
 
-[node name="TakeDamage" type="AudioStreamPlayer2D" parent="." unique_id=104389404]
+[node name="TakeDamage" type="AudioStreamPlayer2D" parent="." unique_id=104389404 groups=["enemy"]]
 stream = ExtResource("3_sbgb4")
 pitch_scale = 0.75

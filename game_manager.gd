@@ -1,18 +1,25 @@
 extends Node
 
-var time := 180.0
+var time := 300.0
 const DAY_LENGTH := 1200.0
 
 var CurrentCycle := "Day"
 
 @onready var canvas_modulate = get_tree().current_scene.get_node("CanvasModulate")
+@onready var map = get_tree().current_scene.get_node("Map")
+
+@onready var spawn_points = map.get_children().filter(func(node): return node.name.begins_with("SpawnLocation"))
+var enemies_spawned := false
+
 var cropScene = preload("res://Scenes/crop.tscn")
+var slime = preload("res://Scenes/slime.tscn")
+var skeleton = preload("res://Scenes/skeleton.tscn")
+var dog = preload("res://Scenes/dog.tscn")
 
 var night := Color("#394064")
 var morning := Color("ffffffff")
 var day := Color("#ffffff")
 var sunset := Color("#d89b72")
-
 
 func generateWorld():
 	for x in range(10):
@@ -50,9 +57,27 @@ func _process(delta):
 		CurrentCycle = "Night"
 		
 	match CurrentCycle:
-		"Morning": pass
-		"Day": pass
-		"Sunset": pass
-		"Night": pass
+		"Morning":
+			enemies_spawned = false
+		"Day":
+			pass
+		"Sunset":
+			pass
+		"Night":
+			if not enemies_spawned:
+				spawn_enemies()
+				enemies_spawned = true
 
 	#print("Current Time: ", t, " | Current Cycle: ", CurrentCycle)
+	
+func spawn_enemies():
+	var enemies = [slime, skeleton, dog]
+	var available_points = spawn_points.duplicate()
+
+	for i in range(min(5, available_points.size())):
+		var spawn_point = available_points.pick_random()
+		available_points.erase(spawn_point)
+
+		var enemy = enemies.pick_random().instantiate()
+		enemy.global_position = spawn_point.global_position
+		get_tree().current_scene.add_child(enemy)
