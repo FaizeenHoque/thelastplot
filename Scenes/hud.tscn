@@ -26,12 +26,12 @@ texture_progress = ExtResource("3_t1xeu")
 script = ExtResource("4_36asn")
 
 [node name="Timer" parent="." unique_id=1152060217 instance=ExtResource("5_43w4t")]
-position = Vector2(208, -113.8)
+position = Vector2(205.4, -113.8)
 
 [node name="Coin" parent="." unique_id=645125020 instance=ExtResource("6_7gr8i")]
-position = Vector2(17.2, -114.2)
+position = Vector2(16.2, -111.799995)
 scale = Vector2(0.5, 0.5)
 
 [node name="nCrops" parent="." unique_id=1063155687 instance=ExtResource("8_4f5kr")]
-position = Vector2(16.8, -100.39999)
+position = Vector2(12.6, -99.79999)
 scale = Vector2(0.33333334, 0.33333334)
