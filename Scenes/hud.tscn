@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://c4to3glpoe236" path="res://Assets/UI/Bars/progress bar least rounded over.png" id="1_fccik"]
 [ext_resource type="Texture2D" uid="uid://druw7w867m42h" path="res://Assets/UI/Bars/progress bar medium rounded progress blue.png" id="3_t1xeu"]
 [ext_resource type="Script" uid="uid://dyfnitk801qqs" path="res://Scripts/slash_cooldown.gd" id="4_36asn"]
+[ext_resource type="PackedScene" uid="uid://cw01hfeheb127" path="res://Scenes/Timer.tscn" id="5_43w4t"]
+[ext_resource type="PackedScene" uid="uid://dw7r124psngp8" path="res://Scenes/coin.tscn" id="6_7gr8i"]
+[ext_resource type="PackedScene" uid="uid://o5fw37sedimo" path="res://Scenes/nCrops.tscn" id="8_4f5kr"]
 
 [node name="HUD" type="Node2D" unique_id=418181721]
 position = Vector2(0, 608)
@@ -11,9 +14,9 @@ scale = Vector2(5, 5)
 
 [node name="slash_cooldown" type="TextureProgressBar" parent="." unique_id=1369085786]
 offset_left = 1.2
-offset_top = -10.400002
-offset_right = 41.2
-offset_bottom = 29.599998
+offset_top = -5.6000023
+offset_right = 33.2
+offset_bottom = 3.3999977
 max_value = 1.0
 step = 0.1
 value = 1.0
@@ -21,3 +24,14 @@ texture_under = ExtResource("1_bjfho")
 texture_over = ExtResource("1_fccik")
 texture_progress = ExtResource("3_t1xeu")
 script = ExtResource("4_36asn")
+
+[node name="Timer" parent="." unique_id=1152060217 instance=ExtResource("5_43w4t")]
+position = Vector2(208, -113.8)
+
+[node name="Coin" parent="." unique_id=645125020 instance=ExtResource("6_7gr8i")]
+position = Vector2(17.2, -114.2)
+scale = Vector2(0.5, 0.5)
+
+[node name="nCrops" parent="." unique_id=1063155687 instance=ExtResource("8_4f5kr")]
+position = Vector2(16.8, -100.39999)
+scale = Vector2(0.33333334, 0.33333334)

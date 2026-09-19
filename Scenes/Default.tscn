@@ -2,11 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dkmybd5xnniul" path="res://Scenes/player.tscn" id="1_c6y6c"]
 [ext_resource type="PackedScene" uid="uid://2rydxqlptngs" path="res://Scenes/hud.tscn" id="1_m4rby"]
-[ext_resource type="PackedScene" uid="uid://cw01hfeheb127" path="res://Scenes/Timer.tscn" id="4_36hkq"]
 [ext_resource type="PackedScene" uid="uid://ckifls00np74n" path="res://Scenes/Map.tscn" id="4_m4rby"]
-[ext_resource type="PackedScene" uid="uid://dw7r124psngp8" path="res://Scenes/coin.tscn" id="5_36hkq"]
-[ext_resource type="Texture2D" uid="uid://bgyfjw0sttdux" path="res://Assets/UI/CornIcon.tres" id="6_6juqn"]
-[ext_resource type="PackedScene" uid="uid://o5fw37sedimo" path="res://Scenes/nCrops.tscn" id="7_bcjpy"]
 
 [node name="Node2D" type="Node2D" unique_id=940180391]
 
@@ -23,22 +19,4 @@ scale = Vector2(1.6666667, 1.6666667)
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=868793185]
 position = Vector2(-1.3333435, 1.6666641)
 
-[node name="Timer" parent="Player" unique_id=1152060217 instance=ExtResource("4_36hkq")]
-position = Vector2(139.33334, -100.66667)
-
-[node name="Coin" parent="Player" unique_id=645125020 instance=ExtResource("5_36hkq")]
-position = Vector2(170, -75.33333)
-scale = Vector2(0.5, 0.5)
-
-[node name="CornIcon" type="Sprite2D" parent="Player" unique_id=1791997034]
-position = Vector2(-185.66666, 78)
-scale = Vector2(0.39583346, 0.42708334)
-texture = ExtResource("6_6juqn")
-
-[node name="nCrops" parent="Player" unique_id=1063155687 instance=ExtResource("7_bcjpy")]
-position = Vector2(-180, 70.66667)
-scale = Vector2(0.33333334, 0.33333334)
-
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=617159154]
-
-[connection signal="draw" from="Player/nCrops" to="Player" method="_on_n_crops_draw"]

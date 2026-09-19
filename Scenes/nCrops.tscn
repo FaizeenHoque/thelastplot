@@ -1,10 +1,20 @@
 [gd_scene format=3 uid="uid://o5fw37sedimo"]
 
+[ext_resource type="Texture2D" uid="uid://bgyfjw0sttdux" path="res://Assets/UI/CornIcon.tres" id="1_ra2ak"]
+
 [node name="Node2D" type="Node2D" unique_id=1063155687]
 
 [node name="Label" type="Label" parent="." unique_id=163830219]
-offset_right = 40.0
-offset_bottom = 23.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_color = Color(0.76862746, 0.48235294, 0.3019608, 1)
 theme_override_font_sizes/font_size = 30
 text = "0"
+
+[node name="CornIcon" type="Sprite2D" parent="." unique_id=500364921]
+position = Vector2(-30, 1)
+scale = Vector2(1, 1.079)
+texture = ExtResource("1_ra2ak")

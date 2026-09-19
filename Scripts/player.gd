@@ -16,8 +16,8 @@ var range_offset: Vector2
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var swing_sword: AudioStreamPlayer2D = $SwingSword
 @onready var hurt: AudioStreamPlayer2D = $Hurt
-@onready var score: Label = $nCrops/Label
-@onready var moni: Label = $Coin/Label
+@onready var score: Label = $HUD/nCrops/Label
+@onready var moni: Label = $HUD/Coin/Label
 @onready var range: Area2D = $Range
 @onready var attack_cooldown: Timer = $AttackCooldown
 
