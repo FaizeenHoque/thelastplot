@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b1irgam53wkjd" path="res://Assets/Sprites/crop-Sheet.png" id="1_7rxg7"]
 [ext_resource type="Script" uid="uid://delqmf4xhljjw" path="res://Scripts/crop.gd" id="1_rqw3c"]
 [ext_resource type="AudioStream" uid="uid://xivgdqlhkcbh" path="res://Assets/Audio/Roar.wav" id="2_djpt6"]
+[ext_resource type="PackedScene" uid="uid://brvvybsshrs4x" path="res://Effects/Particles/crop_break_particle_effect.tscn" id="4_wi28c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_djpt6"]
 atlas = ExtResource("1_7rxg7")
@@ -55,7 +56,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"death",
-"speed": 7.0
+"speed": 30.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -84,3 +85,5 @@ shape = SubResource("RectangleShape2D_7rxg7")
 [node name="TakeDamage" type="AudioStreamPlayer2D" parent="." unique_id=1420686332]
 stream = ExtResource("2_djpt6")
 pitch_scale = 0.75
+
+[node name="Crop Break Particle Effect" parent="." unique_id=596861889 instance=ExtResource("4_wi28c")]

@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://brvvybsshrs4x"]
+
+[sub_resource type="Curve" id="Curve_xagnb"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5352564, 0.35000002), -1.3722216, -1.3722216, 0, 0, Vector2(1, 0.008333325), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_fifeb"]
+colors = PackedColorArray(0.42352942, 0.3764706, 0, 1, 1, 1, 1, 1)
+
+[node name="Crop Break Particle Effect" type="Node2D" unique_id=596861889]
+scale = Vector2(5, 5)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1301336016]
+emitting = false
+amount = 20
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 1000)
+initial_velocity_min = 15.0
+initial_velocity_max = 30.0
+scale_amount_min = 5.0
+scale_amount_max = 10.0
+scale_amount_curve = SubResource("Curve_xagnb")
+color = Color(0.86358243, 0.71747166, 0.27101576, 1)
+color_initial_ramp = SubResource("Gradient_fifeb")
+hue_variation_min = 1.0
+hue_variation_max = 1.0

@@ -18,13 +18,15 @@ config/icon="res://icon.svg"
 [autoload]
 
 PlayerStats="*uid://p6wgbyies4gj"
+GameManager="*uid://fbcn2pes3o1l"
 
 [display]
 
-window/size/mode=3
-window/size/initial_position_type=3
+window/size/resizable=false
+window/size/borderless=true
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+window/vsync/vsync_mode=0
 
 [editor_plugins]
 

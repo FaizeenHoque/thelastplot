@@ -10,7 +10,7 @@ var last_direction: Vector2 = Vector2.DOWN
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var take_damage_sound: AudioStreamPlayer2D = $TakeDamage
-@onready var blood_particles: CPUParticles2D = $"Blood Particle Effect/CPUParticles2D"
+@onready var crop_break_particle: CPUParticles2D = $"Crop Break Particle Effect/CPUParticles2D"
 
 func _ready() -> void:
 	z_index = -100
@@ -38,6 +38,8 @@ func take_damage(damage: int, attacker_position: Vector2) -> void:
 		#tween.set_trans(Tween.TRANS_CUBIC)
 		#tween.tween_property(self, "position", target_position, 0.5)
 		
+		crop_break_particle.emitting = true
+		
 		await get_tree().create_timer(0.15).timeout
 		if is_alive:
 			animated_sprite_2d.modulate = Color(1, 1, 1)
@@ -52,7 +54,7 @@ func _die(attacker_position: Vector2) -> void:
 	#tween.set_trans(Tween.TRANS_CUBIC)
 	#tween.tween_property(self, "position", target_position, 0.5)
 	
-	#blood_particles.emitting = true
+	crop_break_particle.emitting = true
 	animated_sprite_2d.play("death")
 	
 	#take_damage_sound.pitch_scale = 1.75

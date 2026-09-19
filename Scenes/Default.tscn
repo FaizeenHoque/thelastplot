@@ -10,9 +10,12 @@
 
 [node name="Node2D" type="Node2D" unique_id=940180391]
 
+[node name="Map" parent="." unique_id=28402432 instance=ExtResource("4_m4rby")]
+z_index = -200
+
 [node name="Skeleton" parent="." unique_id=1293755580 instance=ExtResource("2_unpil")]
 z_as_relative = false
-position = Vector2(251, 189)
+position = Vector2(143.00002, 55)
 
 [node name="Player" parent="." unique_id=720209454 instance=ExtResource("1_c6y6c")]
 position = Vector2(580, 313)
@@ -24,16 +27,15 @@ scale = Vector2(1.6666667, 1.6666667)
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=868793185]
 position = Vector2(-1.3333435, 1.6666641)
 
-[node name="Map" parent="." unique_id=28402432 instance=ExtResource("4_m4rby")]
-z_index = -200
-
 [node name="Slime" parent="." unique_id=2046605540 instance=ExtResource("5_36hkq")]
-position = Vector2(414, 274)
+position = Vector2(237, 55)
 
 [node name="Skeleton2" parent="." unique_id=1242250078 instance=ExtResource("6_6juqn")]
-position = Vector2(250, 365)
+position = Vector2(406, 50)
 
 [node name="Crop" parent="." unique_id=1777302916 instance=ExtResource("7_bcjpy")]
-position = Vector2(355, 350)
+position = Vector2(328, 64)
 collision_layer = 2
 collision_mask = 0
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=617159154]
