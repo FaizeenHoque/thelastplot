@@ -17,6 +17,7 @@ var range_offset: Vector2
 @onready var swing_sword: AudioStreamPlayer2D = $SwingSword
 @onready var hurt: AudioStreamPlayer2D = $Hurt
 @onready var score: Label = $nCrops/Label
+@onready var moni: Label = $Coin/Label
 @onready var range: Area2D = $Range
 @onready var attack_cooldown: Timer = $AttackCooldown
 
@@ -30,6 +31,7 @@ func _physics_process(delta: float) -> void:
 	# Disable range until an attack is triggered
 	range.monitoring = false
 	score.text = str(PlayerStats.nCrops)
+	moni.text = str(PlayerStats.money)
 	PlayerStats.slash_cooldown = attack_cooldown.time_left
 	
 	if Input.is_action_just_pressed("Slash") and not is_slashing and attack_cooldown.is_stopped():
@@ -114,5 +116,5 @@ func _on_range_body_entered(body: Node2D) -> void:
 		body.take_damage(SLASH_STRENGTH, position)
 
 func _on_range_area_entered(area: Area2D) -> void:
-	if is_slashing and area.has_method("take_damage"):
+	if is_slashing and area.has_method("take_damage") and PlayerStats.canFarm:
 		area.take_damage(SLASH_STRENGTH, position)

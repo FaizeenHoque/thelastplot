@@ -53,4 +53,5 @@ func _die(attacker_position: Vector2) -> void:
 		
 	await tween.finished
 	PlayerStats.nCrops += 1
+	PlayerStats.money += 50
 	queue_free()

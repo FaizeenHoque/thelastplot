@@ -1,12 +1,13 @@
 extends Node
 
-var time := 300.0 # Starting the game bright and shiny to let the player harvest some crops (before defending them)
-const DAY_LENGTH := 1200.0
+var time := 0.0
+const DAY_LENGTH := 120.0
 var nIterations = 1
 var CurrentCycle := "Day"
 
 @onready var canvas_modulate = get_tree().current_scene.get_node("CanvasModulate")
 @onready var map = get_tree().current_scene.get_node("Map")
+@onready var timer = get_tree().current_scene.get_node("Player/Timer/Label")
 
 @onready var spawn_points = map.get_children().filter(func(node): return node.name.begins_with("SpawnLocation"))
 var enemies_spawned := false
@@ -43,38 +44,41 @@ func _process(delta):
 		time = 0.0
 
 	var t = time / DAY_LENGTH
+	
 
-	if t < 0.25:
-		var progress = t / 0.25
+	if t < 0.15:
+		var progress = t / 0.15
 		canvas_modulate.color = night.lerp(morning, progress)
 		CurrentCycle = "Morning"
-	elif t < 0.5:
-		var progress = (t - 0.25) / 0.25
+	elif t < 0.35:
+		var progress = (t - 0.15) / 0.20
 		canvas_modulate.color = morning.lerp(day, progress)
 		CurrentCycle = "Day"
-	elif t < 0.7:
-		var progress = (t - 0.5) / 0.2
+	elif t < 0.50:
+		var progress = (t - 0.35) / 0.15
 		canvas_modulate.color = day.lerp(sunset, progress)
 		CurrentCycle = "Sunset"
 	else:
-		var progress = (t - 0.7) / 0.3
+		var progress = (t - 0.50) / 0.50
 		canvas_modulate.color = sunset.lerp(night, progress)
 		CurrentCycle = "Night"
 		
 	match CurrentCycle:
 		"Morning":
 			enemies_spawned = false
+			PlayerStats.canFarm = true
 		"Day":
-			pass
-			#if nIterations == 1:
-				#generateWorld()
+			PlayerStats.canFarm = true
 		"Sunset":
-			pass
-		"Night":
+			PlayerStats.canFarm = false
 			if not enemies_spawned:
 				spawn_enemies()
 				enemies_spawned = true
-			nIterations += 1
+		"Night":
+			PlayerStats.canFarm = false
+			if not enemies_spawned:
+				spawn_enemies()
+				enemies_spawned = true
 
 	#print("Current Time: ", t, " | Current Cycle: ", CurrentCycle)
 	
