@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://cw01hfeheb127"]
 
+[ext_resource type="Script" uid="uid://c4i6g47k8j2yi" path="res://Scripts/time.gd" id="1_notwg"]
+
 [node name="Node2D" type="Node2D" unique_id=1152060217]
+script = ExtResource("1_notwg")
 
 [node name="Label" type="Label" parent="." unique_id=62144327]
 anchors_preset = 15

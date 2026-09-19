@@ -1,6 +1,8 @@
 extends Node
 
-var time := 0.0
+var game_time := "1:00"
+
+var time := DAY_LENGTH * (1.0 / 24.0)
 const DAY_LENGTH := 120.0
 var nIterations = 1
 var CurrentCycle := "Day"
@@ -45,6 +47,11 @@ func _process(delta):
 
 	var t = time / DAY_LENGTH
 	
+	var total_minutes = int(t * 24.0 * 60.0)
+	var hours = total_minutes / 60
+	var minutes = total_minutes % 60
+
+	game_time = "%d:%02d" % [hours, minutes]
 
 	if t < 0.15:
 		var progress = t / 0.15
