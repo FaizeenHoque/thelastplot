@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Area2D
 
 # Properties
 var HEALTH = 100
@@ -18,9 +18,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if is_alive:
 		animated_sprite_2d.play("idle")
-	
-	move_and_slide()
-	
+
 func take_damage(damage: int, attacker_position: Vector2) -> void:
 	#print("Damage taken")
 	HEALTH -= damage

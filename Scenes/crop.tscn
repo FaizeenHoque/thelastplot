@@ -70,7 +70,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7rxg7"]
 size = Vector2(14, 24)
 
-[node name="Crop" type="CharacterBody2D" unique_id=1777302916]
+[node name="Crop" type="Area2D" unique_id=355250924]
 scale = Vector2(2, 2)
 script = ExtResource("1_rqw3c")
 

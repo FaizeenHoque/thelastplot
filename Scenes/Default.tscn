@@ -15,10 +15,10 @@ z_index = -200
 
 [node name="Skeleton" parent="." unique_id=1293755580 instance=ExtResource("2_unpil")]
 z_as_relative = false
-position = Vector2(143.00002, 55)
+position = Vector2(886, 96)
 
 [node name="Player" parent="." unique_id=720209454 instance=ExtResource("1_c6y6c")]
-position = Vector2(580, 313)
+position = Vector2(105, 269)
 
 [node name="HUD" parent="Player" unique_id=418181721 instance=ExtResource("1_m4rby")]
 position = Vector2(-188.66667, 93.333336)
@@ -28,14 +28,11 @@ scale = Vector2(1.6666667, 1.6666667)
 position = Vector2(-1.3333435, 1.6666641)
 
 [node name="Slime" parent="." unique_id=2046605540 instance=ExtResource("5_36hkq")]
-position = Vector2(237, 55)
+position = Vector2(905, 167)
 
 [node name="Skeleton2" parent="." unique_id=1242250078 instance=ExtResource("6_6juqn")]
-position = Vector2(406, 50)
+position = Vector2(986, 150)
 
 [node name="Crop" parent="." unique_id=1777302916 instance=ExtResource("7_bcjpy")]
-position = Vector2(328, 64)
-collision_layer = 2
-collision_mask = 0
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=617159154]
