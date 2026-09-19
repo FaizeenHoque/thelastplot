@@ -53,6 +53,7 @@ func take_damage(damage: int, attacker_position: Vector2) -> void:
 
 func _die() -> void:
 	is_alive = false
+	animated_sprite_2d.modulate = Color(1, 1, 1)
 	
 	match last_direction:
 		Vector2.UP:

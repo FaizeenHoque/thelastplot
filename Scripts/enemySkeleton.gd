@@ -53,6 +53,8 @@ func take_damage(damage: int, attacker_position: Vector2) -> void:
 
 func _die() -> void:
 	is_alive = false
+	animated_sprite_2d.modulate = Color(1, 1, 1)
+	
 	animated_sprite_2d.play("death")
 	
 	take_damage_sound.pitch_scale = 0.5

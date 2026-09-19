@@ -1,6 +1,6 @@
 extends Node
 
-var time := 300.0
+var time := 839.0
 const DAY_LENGTH := 1200.0
 
 var CurrentCycle := "Day"
