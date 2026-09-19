@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://o5fw37sedimo"]
+
+[node name="Node2D" type="Node2D" unique_id=1063155687]
+
+[node name="Label" type="Label" parent="." unique_id=163830219]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0.76862746, 0.48235294, 0.3019608, 1)
+theme_override_font_sizes/font_size = 30
+text = "0"

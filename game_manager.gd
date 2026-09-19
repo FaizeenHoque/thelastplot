@@ -30,6 +30,7 @@ func generateWorld():
 		var crop = cropScene.instantiate()
 		
 		crop.global_position = tilemap.map_to_local(cell)
+		crop.grid_coord = cell
 		map.add_child(crop)
 
 func _ready() -> void:

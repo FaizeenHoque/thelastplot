@@ -3,8 +3,10 @@ extends CharacterBody2D
 var SPEED = 150.0
 var SLASH_STRENGTH = 20
 
+
 var MAX_HEALTH: int
 var health: int
+var nCrops: int = 0
 
 var last_direction: Vector2 = Vector2.DOWN
 var is_slashing: bool = false
@@ -14,6 +16,7 @@ var range_offset: Vector2
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var swing_sword: AudioStreamPlayer2D = $SwingSword
 @onready var hurt: AudioStreamPlayer2D = $Hurt
+@onready var score: Label = $nCrops/Label
 @onready var range: Area2D = $Range
 @onready var attack_cooldown: Timer = $AttackCooldown
 
@@ -26,6 +29,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	# Disable range until an attack is triggered
 	range.monitoring = false
+	score.text = str(PlayerStats.nCrops)
 	PlayerStats.slash_cooldown = attack_cooldown.time_left
 	
 	if Input.is_action_just_pressed("Slash") and not is_slashing and attack_cooldown.is_stopped():
@@ -66,19 +70,19 @@ func play_animation(prefix: String, dir: Vector2) -> void:
 	elif dir.y < 0:
 		animated_sprite_2d.play(prefix + "_up")
 	elif dir.y > 0:
-		animated_sprite_2d.play(prefix + "_down") 
+		animated_sprite_2d.play(prefix + "_down")
 
-func take_damage(amount: int, knockback: int, attacker_position: Vector2) -> void:
-	health -= amount
-	hurt.play()
-	PlayerStats.health = health
-	
-	var knockback_direction = (position - attacker_position).normalized()
-	var target_position = position + knockback_direction * knockback
-	var tween = create_tween()
-	tween.set_ease(Tween.EASE_OUT)
-	tween.set_trans(Tween.TRANS_CUBIC)
-	tween.tween_property(self, "position", target_position, 0.5)
+#func take_damage(amount: int, knockback: int, attacker_position: Vector2) -> void:
+	#health -= amount
+	#hurt.play()
+	#PlayerStats.health = health
+	#
+	#var knockback_direction = (position - attacker_position).normalized()
+	#var target_position = position + knockback_direction * knockback
+	#var tween = create_tween()
+	#tween.set_ease(Tween.EASE_OUT)
+	#tween.set_trans(Tween.TRANS_CUBIC)
+	#tween.tween_property(self, "position", target_position, 0.5)
 
 func slash() -> void:
 	is_slashing = true
@@ -110,6 +114,5 @@ func _on_range_body_entered(body: Node2D) -> void:
 		body.take_damage(SLASH_STRENGTH, position)
 
 func _on_range_area_entered(area: Area2D) -> void:
-	print("gng")
 	if is_slashing and area.has_method("take_damage"):
 		area.take_damage(SLASH_STRENGTH, position)
