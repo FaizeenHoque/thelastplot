@@ -26,5 +26,13 @@
 
 --- 
 
-### To run locally, simply clone the repo and open in godot 4 engine. Check it out on:
+## Powerups:
+	* **Power**: boosts your SLASH STRENGTH
+	* **Lower cooldown**: Makes your slashes reload faster
+
+---
+
+### To run locally, simply clone the repo and open in godot 4 engine
+```git clone https://github.com/FaizeenHoque/thelastplot.git```
+
 ### https://faizeenhoque.itch.io/the-last-plot 
