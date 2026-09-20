@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dyfnitk801qqs" path="res://Scripts/slash_cooldown.gd" id="4_36asn"]
 [ext_resource type="PackedScene" uid="uid://cw01hfeheb127" path="res://Scenes/Timer.tscn" id="5_43w4t"]
 [ext_resource type="PackedScene" uid="uid://dw7r124psngp8" path="res://Scenes/coin.tscn" id="6_7gr8i"]
+[ext_resource type="Script" uid="uid://c853o05rh6w20" path="res://Scripts/calendar.gd" id="6_43w4t"]
 [ext_resource type="PackedScene" uid="uid://o5fw37sedimo" path="res://Scenes/nCrops.tscn" id="8_4f5kr"]
 
 [node name="HUD" type="Node2D" unique_id=418181721]
@@ -26,12 +27,22 @@ texture_progress = ExtResource("3_t1xeu")
 script = ExtResource("4_36asn")
 
 [node name="Timer" parent="." unique_id=1152060217 instance=ExtResource("5_43w4t")]
-position = Vector2(205.4, -113.8)
+position = Vector2(206, -105)
+
+[node name="Calendar" type="Label" parent="." unique_id=1360835509]
+offset_left = 209.0
+offset_top = -117.6
+offset_right = 295.0
+offset_bottom = -72.6
+theme_override_colors/font_color = Color(1, 0.68235296, 0.26666668, 1)
+theme_override_font_sizes/font_size = 5
+text = "Day 1"
+script = ExtResource("6_43w4t")
 
 [node name="Coin" parent="." unique_id=645125020 instance=ExtResource("6_7gr8i")]
 position = Vector2(16.2, -111.799995)
 scale = Vector2(0.5, 0.5)
 
 [node name="nCrops" parent="." unique_id=1063155687 instance=ExtResource("8_4f5kr")]
-position = Vector2(12.6, -99.79999)
+position = Vector2(12.400001, -12.000008)
 scale = Vector2(0.33333334, 0.33333334)

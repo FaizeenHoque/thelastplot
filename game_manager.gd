@@ -1,6 +1,7 @@
 extends Node
 
 var game_time := "1:00"
+var game_calendar := "Day 1"
 
 var time := DAY_LENGTH * (1.0 / 24.0)
 const DAY_LENGTH := 120.0
@@ -69,23 +70,34 @@ func _process(delta):
 		var progress = (t - 0.50) / 0.50
 		canvas_modulate.color = sunset.lerp(night, progress)
 		CurrentCycle = "Night"
+		nIterations += 1
 		
 	match CurrentCycle:
 		"Morning":
 			enemies_spawned = false
 			PlayerStats.canFarm = true
+			game_calendar = "Dawn" + str(nIterations)
+			if nIterations > 0:
+				var enemies = get_tree().get_nodes_in_group("enemy")
+				for enemy in enemies:
+					enemy.queue_free()
 		"Day":
-			PlayerStats.canFarm = true
+			game_calendar = "Dawn" + str(nIterations)
 		"Sunset":
 			PlayerStats.canFarm = false
+			game_calendar = "Dusk" + str(nIterations)
+			if nIterations == 3:
+				#end da game
+				if PlayerStats.nCrops > 50:
+					pass #win
+				else:
+					pass
 			if not enemies_spawned:
 				spawn_enemies()
 				enemies_spawned = true
 		"Night":
-			PlayerStats.canFarm = false
-			if not enemies_spawned:
-				spawn_enemies()
-				enemies_spawned = true
+			game_calendar = "Dusk" + str(nIterations)
+			spawn_enemies()
 
 	#print("Current Time: ", t, " | Current Cycle: ", CurrentCycle)
 	

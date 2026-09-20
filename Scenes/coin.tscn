@@ -5,22 +5,17 @@
 [node name="Node2D" type="Node2D" unique_id=645125020]
 
 [node name="Label" type="Label" parent="." unique_id=176966554]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -9.0
-offset_top = -22.5
-offset_right = 144.0
-offset_bottom = 22.5
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = -7.0
+offset_top = -15.0
+offset_right = 11.0
+offset_bottom = 30.0
 theme_override_colors/font_color = Color(0.05100429, 0.58896816, 1.0845727, 1)
 theme_override_constants/outline_size = 10
 theme_override_constants/shadow_outline_size = 2
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 24
 text = "0"
 
 [node name="Coin" type="Sprite2D" parent="." unique_id=1644893621]
-position = Vector2(-20, 2)
-scale = Vector2(0.28, 0.28)
+position = Vector2(-22.000002, 2)
+scale = Vector2(0.374375, 0.39)
 texture = ExtResource("1_2qo34")

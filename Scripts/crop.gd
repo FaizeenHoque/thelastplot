@@ -58,7 +58,5 @@ func _die(attacker_position: Vector2, reward: bool) -> void:
 	if reward:
 		PlayerStats.nCrops += 1
 		PlayerStats.money += 50
-	else: 
-		pass
 	queue_free()
 	

@@ -119,6 +119,6 @@ func _on_range_body_entered(body: Node2D) -> void:
 		body.take_damage(SLASH_STRENGTH, position)
 
 func _on_range_area_entered(area: Area2D) -> void:
-	if is_slashing and area.has_method("take_damage") and PlayerStats.canFarm:
+	if is_slashing and area.is_in_group("crops") and PlayerStats.canFarm:
 		crop_hit.play()
 		area.take_damage(SLASH_STRENGTH, position, false)
