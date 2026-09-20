@@ -2,8 +2,6 @@ extends CharacterBody2D
 
 var SPEED = 150.0
 
-
-
 var MAX_HEALTH: int
 var health: int
 var nCrops: int = 0
@@ -36,6 +34,8 @@ func _physics_process(delta: float) -> void:
 	score.text = str(PlayerStats.nCrops)
 	moni.text = str(PlayerStats.money)
 	PlayerStats.slash_cooldown = attack_cooldown.time_left
+	attack_cooldown.wait_time = PlayerStats.cooldown
+	
 	
 	if Input.is_action_just_pressed("Slash") and not is_slashing and attack_cooldown.is_stopped():
 		slash()
@@ -92,9 +92,10 @@ func play_animation(prefix: String, dir: Vector2) -> void:
 func slash() -> void:
 	is_slashing = true
 	range.monitoring = true
+	attack_cooldown.wait_time = PlayerStats.cooldown
 	attack_cooldown.start()
 	swing_sword.play()
-	play_animation("slash", last_direction)	
+	play_animation("slash", last_direction)
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if is_slashing:

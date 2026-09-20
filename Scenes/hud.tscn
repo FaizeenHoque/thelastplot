@@ -57,6 +57,7 @@ offset_top = -36.399998
 offset_right = 225.79999
 offset_bottom = -20.2
 script = ExtResource("9_4f5kr")
+metadata/_edit_group_ = true
 
 [node name="Label" type="Label" parent="power" unique_id=958875277]
 layout_mode = 0
@@ -68,13 +69,14 @@ theme_override_font_sizes/font_size = 4
 text = "$1000"
 
 [node name="cooldown" type="Button" parent="." unique_id=1488982001]
-offset_left = 211.0
-offset_top = -17.0
-offset_right = 226.2
-offset_bottom = -0.80000305
+offset_left = 210.8
+offset_top = -53.699997
+offset_right = 226.0
+offset_bottom = -37.5
 script = ExtResource("10_piegi")
+metadata/_edit_group_ = true
 
-[node name="Label2" type="Label" parent="cooldown" unique_id=225214619]
+[node name="Label" type="Label" parent="cooldown" unique_id=225214619]
 layout_mode = 0
 offset_left = 2.400003
 offset_top = 8.999998
@@ -88,11 +90,13 @@ text = "$2000
 position = Vector2(218, -31.399998)
 scale = Vector2(0.3625003, 0.3249998)
 texture = ExtResource("9_5ep0j")
+metadata/_edit_group_ = true
 
 [node name="Cooldown" type="Sprite2D" parent="." unique_id=1724507083]
-position = Vector2(218, -12.999999)
+position = Vector2(217.8, -49.7)
 scale = Vector2(0.32812515, 0.31874982)
 texture = ExtResource("10_4f5kr")
+metadata/_edit_group_ = true
 
-[connection signal="pressed" from="power" to="slash_cooldown" method="_on_power_pressed"]
 [connection signal="pressed" from="power" to="power" method="_on_pressed"]
+[connection signal="pressed" from="cooldown" to="cooldown" method="_on_pressed"]
