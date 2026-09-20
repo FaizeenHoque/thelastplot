@@ -76,27 +76,27 @@ func _process(delta):
 		"Morning":
 			enemies_spawned = false
 			PlayerStats.canFarm = true
-			game_calendar = "Dawn" + str(nIterations)
+			game_calendar = "Dawn " + str(nIterations)
 			if nIterations > 0:
 				var enemies = get_tree().get_nodes_in_group("enemy")
 				for enemy in enemies:
 					enemy.queue_free()
 		"Day":
-			game_calendar = "Dawn" + str(nIterations)
+			game_calendar = "Dawn " + str(nIterations)
 		"Sunset":
 			PlayerStats.canFarm = false
-			game_calendar = "Dusk" + str(nIterations)
+			game_calendar = "Dusk " + str(nIterations)
 			if nIterations == 3:
 				#end da game
 				if PlayerStats.nCrops > 50:
-					pass #win
+					get_tree().change_scene_to_file("res://Scenes/win.tscn") #win
 				else:
-					pass
+					get_tree().change_scene_to_file("res://Scenes/lose.tscn")
 			if not enemies_spawned:
 				spawn_enemies()
 				enemies_spawned = true
 		"Night":
-			game_calendar = "Dusk" + str(nIterations)
+			game_calendar = "Dusk " + str(nIterations)
 			spawn_enemies()
 
 	#print("Current Time: ", t, " | Current Cycle: ", CurrentCycle)
