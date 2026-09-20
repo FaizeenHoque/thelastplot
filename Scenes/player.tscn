@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://e1nfefbv2img" path="res://Assets/Sprites/Player/Player.png" id="2_cvnsp"]
 [ext_resource type="AudioStream" uid="uid://dwrun6415sgy3" path="res://Assets/Audio/Swooosh.wav" id="3_6t5aa"]
 [ext_resource type="AudioStream" uid="uid://xivgdqlhkcbh" path="res://Assets/Audio/Roar.wav" id="4_vgqql"]
+[ext_resource type="AudioStream" uid="uid://hm3rnkc1k0ly" path="res://Assets/Audio/HitSound1.mp3" id="5_fkybt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c1k8q"]
 atlas = ExtResource("2_cvnsp")
@@ -459,6 +460,10 @@ pitch_scale = 5.0
 
 [node name="AttackCooldown" type="Timer" parent="." unique_id=1622770849]
 one_shot = true
+
+[node name="CropHit" type="AudioStreamPlayer2D" parent="." unique_id=1878451650]
+stream = ExtResource("5_fkybt")
+pitch_scale = 0.4
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="area_entered" from="Range" to="." method="_on_range_area_entered"]

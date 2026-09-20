@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b1irgam53wkjd" path="res://Assets/Sprites/crop-Sheet.png" id="1_7rxg7"]
 [ext_resource type="Script" uid="uid://delqmf4xhljjw" path="res://Scripts/crop.gd" id="1_rqw3c"]
-[ext_resource type="AudioStream" uid="uid://v6feyorbyi5o" path="res://Assets/Audio/CropBreak.wav" id="3_wi28c"]
+[ext_resource type="AudioStream" uid="uid://bdvcu6n4e142y" path="res://Assets/Audio/HitSound1.mp3" id="3_wi28c"]
 [ext_resource type="PackedScene" uid="uid://brvvybsshrs4x" path="res://Effects/Particles/crop_break_particle_effect.tscn" id="4_wi28c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_djpt6"]
@@ -70,7 +70,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7rxg7"]
 size = Vector2(13.333334, 23.333336)
 
-[node name="Crop" type="Area2D" unique_id=355250924]
+[node name="Crop" type="Area2D" unique_id=355250924 groups=["crop"]]
 scale = Vector2(1.5, 1.5)
 collision_layer = 2
 script = ExtResource("1_rqw3c")
@@ -83,9 +83,9 @@ animation = &"idle"
 position = Vector2(-2.3841858e-07, -1)
 shape = SubResource("RectangleShape2D_7rxg7")
 
-[node name="TakeDamage" type="AudioStreamPlayer2D" parent="." unique_id=1420686332]
+[node name="Death" type="AudioStreamPlayer2D" parent="." unique_id=1420686332]
 stream = ExtResource("3_wi28c")
-pitch_scale = 0.26
+pitch_scale = 0.4
 
 [node name="Crop Break Particle Effect" parent="." unique_id=596861889 instance=ExtResource("4_wi28c")]
 

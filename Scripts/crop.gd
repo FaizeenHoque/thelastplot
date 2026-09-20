@@ -10,22 +10,25 @@ var target = null
 var last_direction: Vector2 = Vector2.DOWN
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var take_damage_sound: AudioStreamPlayer2D = $TakeDamage
+@onready var death: AudioStreamPlayer2D = $Death
 @onready var crop_break_particle: CPUParticles2D = $"Crop Break Particle Effect/CPUParticles2D"
 
 func _ready() -> void:
+	add_to_group("crops")
 	z_index = 1
 
 func _physics_process(delta: float) -> void:
 	if is_alive:
 		animated_sprite_2d.play("idle")
 
-func take_damage(damage: int, attacker_position: Vector2) -> void:
+func take_damage(damage: int, attacker_position: Vector2, enemy: bool) -> void:
 	HEALTH -= damage
-	take_damage_sound.play()
 	
 	if HEALTH <= 0:
-		_die(attacker_position)
+		if enemy:
+			_die(attacker_position, false)
+		else: 
+			_die(attacker_position, true)
 	else:
 		animated_sprite_2d.modulate = Color(1, 1, 0)
 		crop_break_particle.emitting = true
@@ -33,15 +36,15 @@ func take_damage(damage: int, attacker_position: Vector2) -> void:
 		await get_tree().create_timer(0.15).timeout
 		if is_alive:
 			animated_sprite_2d.modulate = Color(1, 1, 1)
-			
-func _die(attacker_position: Vector2) -> void:
+
+func _die(attacker_position: Vector2, reward: bool) -> void:
 	is_alive = false
 	
 	crop_break_particle.emitting = true
 	animated_sprite_2d.play("death")
 	
-	take_damage_sound.pitch_scale = 1.75
-	take_damage_sound.play()
+	death.pitch_scale = 1.75
+	death.play()
 	
 	$hitbox.set_deferred("disabled", true)
 	
@@ -52,6 +55,10 @@ func _die(attacker_position: Vector2) -> void:
 		mud_layer.set_cell(grid_coord, 0, Vector2i(0, 1))
 		
 	await tween.finished
-	PlayerStats.nCrops += 1
-	PlayerStats.money += 50
+	if reward:
+		PlayerStats.nCrops += 1
+		PlayerStats.money += 50
+	else: 
+		pass
 	queue_free()
+	

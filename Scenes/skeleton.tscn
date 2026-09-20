@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b518gwyylk7sp" path="res://Scripts/enemySkeleton.gd" id="1_81u3t"]
 [ext_resource type="Texture2D" uid="uid://dap5t2xjhr2tn" path="res://Assets/Sprites/Enemies/Skeleton.png" id="1_sfdtf"]
-[ext_resource type="AudioStream" uid="uid://xivgdqlhkcbh" path="res://Assets/Audio/Roar.wav" id="3_vd5x3"]
+[ext_resource type="AudioStream" uid="uid://c06dm77wec5sq" path="res://Assets/Audio/HurtSound1.mp3" id="3_vd5x3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lw4xn"]
 atlas = ExtResource("1_sfdtf")
@@ -345,7 +345,12 @@ shape = SubResource("RectangleShape2D_xagnb")
 
 [node name="TakeDamage" type="AudioStreamPlayer2D" parent="." unique_id=104389404]
 stream = ExtResource("3_vd5x3")
-pitch_scale = 0.75
+volume_db = 3.782
+pitch_scale = 0.71
+max_distance = 4096.0
+attenuation = 0.25881582
+max_polyphony = 6
+panning_strength = 3.0
 
 [node name="Center" type="Area2D" parent="." unique_id=543640580]
 

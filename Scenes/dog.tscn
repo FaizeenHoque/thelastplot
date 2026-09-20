@@ -3,11 +3,11 @@
 [ext_resource type="Script" uid="uid://dtbc801l6d0h5" path="res://Scripts/enemyNormal.gd" id="1_wkkfr"]
 [ext_resource type="Texture2D" uid="uid://joeiwhotxjm8" path="res://Assets/Sprites/Animals/dog/D_Walk.png" id="2_wkkfr"]
 [ext_resource type="Texture2D" uid="uid://dxsyy8h6nj3og" path="res://Assets/Sprites/Animals/dog/S_Walk.png" id="3_2qe13"]
-[ext_resource type="AudioStream" uid="uid://xivgdqlhkcbh" path="res://Assets/Audio/Roar.wav" id="3_sbgb4"]
 [ext_resource type="Texture2D" uid="uid://b4byijfli8wfn" path="res://Assets/Sprites/Animals/dog/U_Walk.png" id="4_llnvy"]
 [ext_resource type="Texture2D" uid="uid://cl3xcg3nlnoci" path="res://Assets/Sprites/Animals/dog/D_Death.png" id="5_dam1u"]
 [ext_resource type="Texture2D" uid="uid://26472ep4e465" path="res://Assets/Sprites/Animals/dog/S_Death.png" id="6_kcuxi"]
 [ext_resource type="Texture2D" uid="uid://mec1f0bbrehd" path="res://Assets/Sprites/Animals/dog/U_Death.png" id="7_sy2b1"]
+[ext_resource type="AudioStream" uid="uid://c06dm77wec5sq" path="res://Assets/Audio/HurtSound1.mp3" id="8_wkkfr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k0nkm"]
 atlas = ExtResource("2_wkkfr")
@@ -352,7 +352,7 @@ position = Vector2(-0.1666666, 1.9999998)
 shape = SubResource("RectangleShape2D_xagnb")
 
 [node name="TakeDamage" type="AudioStreamPlayer2D" parent="." unique_id=104389404 groups=["enemy"]]
-stream = ExtResource("3_sbgb4")
+stream = ExtResource("8_wkkfr")
 pitch_scale = 0.75
 
 [node name="Center" type="Area2D" parent="." unique_id=1502589228]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cgjaogogy327y" path="res://Scripts/enemySlime.gd" id="1_aiwxb"]
 [ext_resource type="Texture2D" uid="uid://cw4apv5ijsvyn" path="res://Assets/Sprites/Enemies/Slime_Green.png" id="1_jokqx"]
-[ext_resource type="AudioStream" uid="uid://xivgdqlhkcbh" path="res://Assets/Audio/Roar.wav" id="3_paq7w"]
+[ext_resource type="AudioStream" uid="uid://c06dm77wec5sq" path="res://Assets/Audio/HurtSound1.mp3" id="3_paq7w"]
 [ext_resource type="PackedScene" uid="uid://baqh1bucn5sb6" path="res://Effects/Particles/blood_particle_effect.tscn" id="4_paq7w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_swwnm"]
@@ -185,7 +185,7 @@ shape = SubResource("RectangleShape2D_vblni")
 
 [node name="TakeDamage" type="AudioStreamPlayer2D" parent="." unique_id=2143135235]
 stream = ExtResource("3_paq7w")
-pitch_scale = 2.5
+pitch_scale = 4.0
 
 [node name="Blood Particle Effect" parent="." unique_id=596861889 instance=ExtResource("4_paq7w")]
 

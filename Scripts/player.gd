@@ -20,6 +20,9 @@ var range_offset: Vector2
 @onready var moni: Label = $HUD/Coin/Label
 @onready var range: Area2D = $Range
 @onready var attack_cooldown: Timer = $AttackCooldown
+@onready var crop_hit: AudioStreamPlayer2D = $CropHit
+
+var area_
 
 func _ready() -> void:
 	health = PlayerStats.health
@@ -117,4 +120,5 @@ func _on_range_body_entered(body: Node2D) -> void:
 
 func _on_range_area_entered(area: Area2D) -> void:
 	if is_slashing and area.has_method("take_damage") and PlayerStats.canFarm:
-		area.take_damage(SLASH_STRENGTH, position)
+		crop_hit.play()
+		area.take_damage(SLASH_STRENGTH, position, false)
