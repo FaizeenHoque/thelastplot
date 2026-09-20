@@ -97,7 +97,9 @@ func _process(delta):
 				enemies_spawned = true
 		"Night":
 			game_calendar = "Dusk " + str(nIterations)
-			spawn_enemies()
+			if not enemies_spawned:
+				spawn_enemies()
+				enemies_spawned = true
 
 	#print("Current Time: ", t, " | Current Cycle: ", CurrentCycle)
 	
