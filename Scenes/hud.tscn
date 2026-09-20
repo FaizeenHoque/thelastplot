@@ -8,6 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://dw7r124psngp8" path="res://Scenes/coin.tscn" id="6_7gr8i"]
 [ext_resource type="Script" uid="uid://c853o05rh6w20" path="res://Scripts/calendar.gd" id="6_43w4t"]
 [ext_resource type="PackedScene" uid="uid://o5fw37sedimo" path="res://Scenes/nCrops.tscn" id="8_4f5kr"]
+[ext_resource type="Script" uid="uid://6e6peo2sq63" path="res://Scripts/boost.gd" id="9_4f5kr"]
+[ext_resource type="Texture2D" uid="uid://cb5evdnj6ms5v" path="res://Assets/UI/axe.png" id="9_5ep0j"]
+[ext_resource type="Texture2D" uid="uid://biabr1fok0cp6" path="res://Assets/UI/cooldown.png" id="10_4f5kr"]
+[ext_resource type="Script" uid="uid://cu5dltfppv1pd" path="res://Scripts/cooldownfall.gd" id="10_piegi"]
 
 [node name="HUD" type="Node2D" unique_id=418181721]
 position = Vector2(0, 608)
@@ -46,3 +50,49 @@ scale = Vector2(0.5, 0.5)
 [node name="nCrops" parent="." unique_id=1063155687 instance=ExtResource("8_4f5kr")]
 position = Vector2(12.400001, -12.000008)
 scale = Vector2(0.33333334, 0.33333334)
+
+[node name="power" type="Button" parent="." unique_id=2128944614]
+offset_left = 210.59999
+offset_top = -36.399998
+offset_right = 225.79999
+offset_bottom = -20.2
+script = ExtResource("9_4f5kr")
+
+[node name="Label" type="Label" parent="power" unique_id=958875277]
+layout_mode = 0
+offset_left = 2.1999998
+offset_top = 9.4
+offset_right = 42.2
+offset_bottom = 32.4
+theme_override_font_sizes/font_size = 4
+text = "$1000"
+
+[node name="cooldown" type="Button" parent="." unique_id=1488982001]
+offset_left = 211.0
+offset_top = -17.0
+offset_right = 226.2
+offset_bottom = -0.80000305
+script = ExtResource("10_piegi")
+
+[node name="Label2" type="Label" parent="cooldown" unique_id=225214619]
+layout_mode = 0
+offset_left = 2.400003
+offset_top = 8.999998
+offset_right = 42.4
+offset_bottom = 32.0
+theme_override_font_sizes/font_size = 4
+text = "$2000
+"
+
+[node name="Axe" type="Sprite2D" parent="." unique_id=1619511260]
+position = Vector2(218, -31.399998)
+scale = Vector2(0.3625003, 0.3249998)
+texture = ExtResource("9_5ep0j")
+
+[node name="Cooldown" type="Sprite2D" parent="." unique_id=1724507083]
+position = Vector2(218, -12.999999)
+scale = Vector2(0.32812515, 0.31874982)
+texture = ExtResource("10_4f5kr")
+
+[connection signal="pressed" from="power" to="slash_cooldown" method="_on_power_pressed"]
+[connection signal="pressed" from="power" to="power" method="_on_pressed"]

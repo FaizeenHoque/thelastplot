@@ -1,6 +1,6 @@
 extends Node
 
-var game_time := "1:00"
+var game_time := "6:00" #starting the game with early morning (yawn yawn)
 var game_calendar := "Day 1"
 
 var time := DAY_LENGTH * (1.0 / 24.0)

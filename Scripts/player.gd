@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var SPEED = 150.0
-var SLASH_STRENGTH = 20
+
 
 
 var MAX_HEALTH: int
@@ -116,9 +116,9 @@ func updateRangeOffset() -> void:
 
 func _on_range_body_entered(body: Node2D) -> void:
 	if is_slashing and body.is_in_group("enemy"):
-		body.take_damage(SLASH_STRENGTH, position)
+		body.take_damage(PlayerStats.SLASH_STRENGTH, position)
 
 func _on_range_area_entered(area: Area2D) -> void:
 	if is_slashing and area.is_in_group("crops") and PlayerStats.canFarm:
 		crop_hit.play()
-		area.take_damage(SLASH_STRENGTH, position, false)
+		area.take_damage(PlayerStats.SLASH_STRENGTH, position, false)
